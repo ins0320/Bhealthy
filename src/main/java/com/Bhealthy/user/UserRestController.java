@@ -21,7 +21,7 @@ public class UserRestController {
 		
 	/**
 	 * 
-	  * @ API Name  : 아이디 중복확인 API
+	  * @API: 아이디 중복확인 API
 	  * @param loginId
 	  * @return
 	 */
@@ -44,6 +44,15 @@ public class UserRestController {
 		return result;
 	}
 	
+	/**
+	 * 
+	  * @API: 회원가입 API
+	  * @param loginId
+	  * @param password
+	  * @param name
+	  * @param email
+	  * @return
+	 */
 	@RequestMapping("/sign-up")
 	public Map<String, Object> signUp(
 			@RequestParam("loginId") String loginId,
@@ -63,6 +72,30 @@ public class UserRestController {
 		result.put("code", 200);
 		result.put("result", "success");
 		
+		return result;
+	}
+	
+	@RequestMapping("/sign-in")
+	public Map<String, Object> signIn(
+			@RequestParam("loginId") String loginId,
+			@RequestParam("password") String password){
+		
+		// hashing 된 비밀번호
+		String hashedPassword = EncryptUtils.sha256(password);	
+		
+		// DB 조회
+		User user = userBO.getUserByLoginIdAndPassword(loginId, hashedPassword);
+		
+		// 응답값
+		Map<String, Object> result = new HashMap<>();
+		
+		if(user != null) {
+			result.put("code", 200);
+			result.put("result", "success");
+		} else {
+			result.put("code", 300);
+			result.put("error_message", "존재하지 않는 사용자입니다.");
+		}
 		return result;
 	}
 	

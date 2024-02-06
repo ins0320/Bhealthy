@@ -134,7 +134,7 @@
 			.done(function(data){
 				if(data.code == 200){
 					alert("가입을 환영합니다.");
-					location.href="user/sign-in-view";
+					location.href="/user/sign-in-view";
 				} else{
 					alert("가입에 실패했습니다. 관리자에게 문의해주세요.");
 				}

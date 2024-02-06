@@ -12,12 +12,22 @@ public class UserBO {
 	@Autowired
 	private UserMapper userMapper;
 	
+
 	
+	// 아이디 중복 확인
 	// input: loginId output: User
 	public User getUserByLonginId(String loginId) {
 		return userMapper.selectUserByLonginId(loginId);
 	}
+		
+	// 로그인
+	// input: loginId, password   output: User
+	public User getUserByLoginIdAndPassword(String loginId, String password) {
+		return userMapper.selectUserByLoginIdAndPassword(loginId, password);
+	}
 	
+	
+	// 회원가입
 	// input: params output: X
 	public void addUser(String loginId, String password, String name, String email) {
 		 userMapper.insertUser(loginId, password, name, email);

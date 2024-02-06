@@ -5,6 +5,8 @@
 header, footer {height:80px; background-color:#5D8A5D;}
 .sign-up-box{width:655px;  margin-top:20px; box-shadow:5px 5px 5px 5px #BDC0C0; border-radius: 10px;}
 .sign-up-subject{margin:20px; font-weight:bold;}
+.sign-in-box{ width: 300px;}
 .title{ font-size: 50px;  font-family: 'Song Myung', serif;}
+.italic{font-style: italic;}
 
 

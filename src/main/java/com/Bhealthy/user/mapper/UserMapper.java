@@ -10,6 +10,10 @@ public interface UserMapper {
 
 	public User selectUserByLonginId(String loginId);
 	
+	public User selectUserByLoginIdAndPassword(
+			@Param("loginId") String loginId,
+			@Param("password") String password);
+	
 	public void insertUser(
 			@Param("loginId") String loginId,
 			@Param("password") String password,
