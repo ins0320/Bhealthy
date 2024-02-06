@@ -4,6 +4,29 @@
  
  <mapper namespace="com.Bhealthy.user.mapper.UserMapper">
  
+ 	<insert id="insertUser" parameterType="map">
+ 		INSERT INTO 
+ 				`user`
+ 		(
+				 `loginId`
+				, `password`
+				, `name`
+				, `email`
+				, `createdAt`
+				, `updatedAt`
+ 		)
+ 		VALUES
+ 		(
+				 #{loginId}
+				, #{password}
+				, #{name}
+				, #{email}
+				, now()
+				, now()
+ 		)		
+ 	
+ 	
+ 	</insert>
  	<select id="selectUserByLonginId" resultType="com.Bhealthy.user.domain.User">
  		SELECT 
  				`id`
@@ -18,5 +41,6 @@
 		WHERE
 				`loginId` = #{loginId}	
  	</select>
+ 	
  
  </mapper>
