@@ -26,7 +26,7 @@
 
 			<span class="sign-up-subject">*Confirm password</span>
 			<div class="m-3">
-				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control col-6" placeholder="비밀번호를 입력하세요">
+				<input type="password" id="confirmPassword" name="confirmPassword" class="form-control col-6" placeholder="비밀번호 확인을 입력하세요">
 			</div>
 
 			<span class="sign-up-subject">*이름</span>
@@ -80,6 +80,67 @@
 			}); // response
 		}); // -- 아이디 중복확인
 		
+		// 회원가입
+		$("#signUpBtn").on('click', function(e){
+			//alert("회원가입 버튼");
+			
+			e.preventDefault(); // submit 기능 막음
+			
+			let loginId = $("#loginId").val().trim();
+			let password = $("#password").val().trim();
+			let confirmPassword = $("#confirmPassword").val().trim();
+			let email = $("#email").val().trim();
+			let name = $("#name").val();
+			
+			
+			// validation
+			if(!loginId){
+				alert("아이디를 입력해주세요.");
+				return false;
+			}
+			
+			if(!password){
+				alert("비밀번호를 입력해주세요.");
+				return false;
+			}
+			
+			if(!confirmPassword){
+				alert("비밀번호 확인을 입력해주세요.");
+			}
+			
+			if(password != confirmPassword){
+				alert("비밀번호가 일치하지 않습니다.");
+				return false;
+			}
+			
+			if(!name){
+				alert("이름을 입력해주세요.");
+				return false;
+			}
+			
+			if(!email){
+				alert("이메일을 입력해주세요.");
+				return false;
+			}
+		
+			// 중복확인 후 사용 가능한 아이디인지 확인
+			// => idCheckOk 클래스 d-none이 없을 때
+			if ($("#idCheckOk").hasClass('d-none')) {
+				alert("아이디 중복확인을 다시 해주세요.");
+				return false;
+			}
+			
+			$.post("/user/sign-up", {"loginId":loginId, "password":password, "confirmPassword":confirmPassword, "email":email, "name":name}) // request
+			.done(function(data){
+				if(data.code == 200){
+					alert("가입을 환영합니다.");
+					location.href="user/sign-in-view";
+				} else{
+					alert("가입에 실패했습니다. 관리자에게 문의해주세요.");
+				}
+			})
+			
+		}); // ---- #signUpBtn
 		
 		
 	}); // ---- document

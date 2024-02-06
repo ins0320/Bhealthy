@@ -12,8 +12,14 @@ public class UserBO {
 	@Autowired
 	private UserMapper userMapper;
 	
+	
 	// input: loginId output: User
 	public User getUserByLonginId(String loginId) {
 		return userMapper.selectUserByLonginId(loginId);
+	}
+	
+	// input: params output: X
+	public void addUser(String loginId, String password, String name, String email) {
+		 userMapper.insertUser(loginId, password, name, email);
 	}
 }
