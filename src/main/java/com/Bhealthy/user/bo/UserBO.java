@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 import com.Bhealthy.user.domain.User;
 import com.Bhealthy.user.mapper.UserMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class UserBO {
 
