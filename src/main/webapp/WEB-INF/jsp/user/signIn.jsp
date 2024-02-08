@@ -10,7 +10,7 @@
 		 	 		<input type="password" id="password" class="form-control mt-4" placeholder="비밀번호">
 		 	 		<button type="submit" id="loginBtn" class="btn btn-secondary btn-block mt-4">로그인</button>
 		 	 		<hr>
-						<a href="/user/sign-up-view" class="italic">가입하기</a>
+						<a href="/user/signup/view" class="italic">가입하기</a>
 		 		</form>
 		 	</div>
 </div>

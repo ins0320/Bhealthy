@@ -18,7 +18,7 @@
 	<div id="wrap">
 		<header>
 			<jsp:include page="../include/header.jsp" />
-			<jsp:include page="/WEB-INF/jsp/include/nav.jsp" />
+			<c:import url="/WEB-INF/jsp/include/nav.jsp" />
 		</header>
 		<section class="contents my-5">
 			<jsp:include page="../${viewName}.jsp" />
