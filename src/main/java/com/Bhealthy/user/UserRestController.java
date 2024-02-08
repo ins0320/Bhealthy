@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Bhealthy.common.EncryptUtils;
 import com.Bhealthy.user.bo.UserBO;
 import com.Bhealthy.user.domain.User;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/user")
 @RestController
@@ -78,7 +82,8 @@ public class UserRestController {
 	@RequestMapping("/sign-in")
 	public Map<String, Object> signIn(
 			@RequestParam("loginId") String loginId,
-			@RequestParam("password") String password){
+			@RequestParam("password") String password,
+			HttpServletRequest request){
 		
 		// hashing 된 비밀번호
 		String hashedPassword = EncryptUtils.sha256(password);	
@@ -90,9 +95,16 @@ public class UserRestController {
 		Map<String, Object> result = new HashMap<>();
 		
 		if(user != null) {
+			// 로그인 정보를 세션에 담기
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userLoginId", user.getLoginId());
+			session.setAttribute("userName", user.getName());
+			
+			//성공 return 값
 			result.put("code", 200);
 			result.put("result", "success");
-		} else {
+		} else { // 실패 return 값
 			result.put("code", 300);
 			result.put("error_message", "존재하지 않는 사용자입니다.");
 		}

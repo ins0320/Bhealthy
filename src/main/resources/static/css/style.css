@@ -3,11 +3,26 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 header, footer {height:80px;}
-.font-color{color:#5D8A5D;}
+.font-color{color:rgb(99, 136, 96);}
 .sign-up-box{width:655px;  margin-top:20px; box-shadow:5px 5px 5px 5px #BDC0C0; border-radius: 10px;}
 .sign-up-subject{margin:20px; font-weight:bold;}
 .sign-in-box{ width: 300px;}
-.title{ font-size: 70px;  font-family: 'Song Myung', serif;}
+nav > ul > li > a{ color : black;font-size: 20px; }
+nav > ul > li > a:hover { color : blue; }
+
+.banner-img {
+	width:700px;
+	height:500px;
+}
+.carousel-inner{
+	width:700px;
+	height:500px;
+}
+.main-article{ background-color:rgb(224, 224, 224); width:500px;}
+
+.title{ font-size: 70px;  font-family: 'Song Myung', serif; font-weight:200;}
 .italic{font-style: italic;}
+.main-text{font-size:100px; color:white; text-shadow: 3px 4px 5px gray;}
+.sub-text{font-size:30px; color:rgb(158, 158, 158);}
 
 
