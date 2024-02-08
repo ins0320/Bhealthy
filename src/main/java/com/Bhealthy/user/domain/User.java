@@ -3,8 +3,11 @@ package com.Bhealthy.user.domain;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
+@Getter
 @ToString
 @Data
 public class User {
@@ -16,10 +19,18 @@ public class User {
 	private Date createdAt;
 	private Date updatedAt;
 	
-//	 // test를 위한 생성자
-//	public User(String loginId, String password) {
-//		this.loginId = "test";
-//		this.password = "test";
-//	}
+	public static class JoinUser {
 
+		private String loginId;
+		private String password;
+		private String name;
+		private String email;
+
+		public JoinUser(User user) {
+		    this.loginId = user.getLoginId();
+		    this.password = user.getPassword();
+		    this.name = user.getName();
+		    this.email = user.getEmail();
+			}
+	}
 }

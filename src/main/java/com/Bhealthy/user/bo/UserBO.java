@@ -38,11 +38,4 @@ public class UserBO {
 		 userMapper.insertUser(loginId, password, name, email);
 	}
 
-
-	public User addUser(User user) {
-		return user;
-		// TODO Auto-generated method stub
-		
-	}
-
-}
+}	
