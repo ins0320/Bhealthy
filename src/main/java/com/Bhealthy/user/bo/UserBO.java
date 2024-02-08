@@ -14,6 +14,8 @@ public class UserBO {
 
 	@Autowired
 	private UserMapper userMapper;
+	private Object loginId;
+	private String password;
 	
 
 	
@@ -35,4 +37,12 @@ public class UserBO {
 	public void addUser(String loginId, String password, String name, String email) {
 		 userMapper.insertUser(loginId, password, name, email);
 	}
+
+
+	public User addUser(User user) {
+		return user;
+		// TODO Auto-generated method stub
+		
+	}
+
 }

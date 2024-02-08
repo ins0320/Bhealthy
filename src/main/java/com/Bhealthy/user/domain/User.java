@@ -16,9 +16,10 @@ public class User {
 	private Date createdAt;
 	private Date updatedAt;
 	
-	 // test를 위한 생성자
-	public User(String loginId, String password) {
-		this.loginId = "test";
-		this.password = "test";
-	}
+//	 // test를 위한 생성자
+//	public User(String loginId, String password) {
+//		this.loginId = "test";
+//		this.password = "test";
+//	}
+
 }
