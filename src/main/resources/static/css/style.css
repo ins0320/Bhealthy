@@ -1,13 +1,34 @@
-
-
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 header, footer {height:80px;}
+/* color */
 .font-color{color:#5D8A5D;}
+.title{ font-size: 70px;  font-family: 'Song Myung', serif;}
+.italic{font-style: italic;}
+.beige-color{ color: #BDC0C0;}
+.black-color{color: black;}
+
+/*sign% */
 .sign-up-box{width:655px;  margin-top:20px; box-shadow:5px 5px 5px 5px #BDC0C0; border-radius: 10px;}
 .sign-up-subject{margin:20px; font-weight:bold;}
 .sign-in-box{ width: 300px;}
-.title{ font-size: 70px;  font-family: 'Song Myung', serif;}
-.italic{font-style: italic;}
 
+/* nav */ 
+.nav-link { 
+  color: #000;
+  display:inline-block; 
+  margin:0;
+  text-transform:uppercase; }
+.nav-link:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px #ea2129;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.nav-link:hover:after { transform: scaleX(1); }
 
+/* post */
+.post-list-btn{ font-size: 10px; width: 100px; height: 30px; border-radius: 10px; border-width:0px;}
+.post-creat-outer{ display: flex; justify-content: center; align-content: center;}
+.post-creat-inner{width: 40px; height: 50px; margin: auto;}

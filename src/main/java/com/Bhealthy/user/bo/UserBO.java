@@ -38,4 +38,6 @@ public class UserBO {
 		 userMapper.insertUser(loginId, password, name, email);
 	}
 
+
+
 }	
