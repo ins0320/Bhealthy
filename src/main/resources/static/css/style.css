@@ -32,3 +32,6 @@ header, footer {height:80px;}
 .post-list-btn{ font-size: 10px; width: 100px; height: 30px; border-radius: 10px; border-width:0px;}
 .post-creat-outer{ display: flex; justify-content: center; align-content: center;}
 .post-creat-inner{width: 40px; height: 50px; margin: auto;}
+.main-article{background-color:rgb(224, 224, 224); width:500px;}
+.main-text{font-size:100px; color:white; text-shadow: 3px 4px 5px gray;}
+.sub-text{font-size:30px; color:rgb(158, 158, 158);}
