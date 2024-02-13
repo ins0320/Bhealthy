@@ -12,6 +12,9 @@ import com.Bhealthy.common.EncryptUtils;
 import com.Bhealthy.user.bo.UserBO;
 import com.Bhealthy.user.domain.User;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @RequestMapping("/user")
 @RestController
 public class UserRestController {
@@ -78,7 +81,8 @@ public class UserRestController {
 	@RequestMapping("/sign-in")
 	public Map<String, Object> signIn(
 			@RequestParam("loginId") String loginId,
-			@RequestParam("password") String password){
+			@RequestParam("password") String password
+			, HttpServletRequest request){
 		
 		// hashing 된 비밀번호
 		String hashedPassword = EncryptUtils.sha256(password);	
@@ -90,6 +94,12 @@ public class UserRestController {
 		Map<String, Object> result = new HashMap<>();
 		
 		if(user != null) {
+			// 로그인 처리
+			// 로그인 정보를 세션에 담는다.(사용자 별로)
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userLoginId", user.getLoginId());
+			session.setAttribute("userName", user.getName());
 			result.put("code", 200);
 			result.put("result", "success");
 		} else {

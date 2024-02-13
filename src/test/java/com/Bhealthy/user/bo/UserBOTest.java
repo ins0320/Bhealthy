@@ -44,7 +44,8 @@ class UserBOTest {
 //		userBO.addUser(user.getLoginId(), user.getPassword(), user.getEmail(), user.getName());
 //    }
 //	
-	@Test
+	
+	//@Test
 	void 로그인() {
 		log.info("$$$$$$ 로그인 테스트");
 		
@@ -52,11 +53,10 @@ class UserBOTest {
 		User user = new User();
 		user.setLoginId("aaaa");
 		user.setPassword("aaaa");
-		String hashedPassword = EncryptUtils.sha256(user.getPassword());
 		
 		// when
 		//User loginUser = userBO.getUserByLoginIdAndPassword(user);
-		User loginUser = userBO.getUserByLoginIdAndPassword(user.getLoginId(), hashedPassword);
+		User loginUser = userBO.getUserByLoginIdAndPassword(user.getLoginId(), user.getPassword());
 		
 		
 		// then		
@@ -65,21 +65,38 @@ class UserBOTest {
 
 	}
 	
-	
 	@Test
-	void 회원가입() {
-		log.info("@@@@@ 회원가입 테스트");
+	void 로그인2() {
+		log.info("$$$$$$ 암호화 적용한 로그인 테스트");
 		
 		// given
 		User user = new User();
-		user.setLoginId("aaaa");
-		user.setPassword("aaaa");
-		user.setEmail("aaaa@naver.com");
-		user.setName("aaaa");
+		user.setLoginId("bbbb");
+		user.setPassword("bbbb");
+		String hashedPassword = EncryptUtils.sha256(user.getPassword());
 		
 		// when
-		//User joinUser =  userBO.addUser(user.getLoginId(), user.getPassword(), user.getEmail(), user.getName());
+		//User loginUser = userBO.getUserByLoginIdAndPassword(user.getLoginId(), user.getPassword());
+		User loginUser = userBO.getUserByLoginIdAndPassword(user.getLoginId(), hashedPassword);
+		
+
 	}
+	
+//	
+//	@Test
+//	void 회원가입() {
+//		log.info("@@@@@ 회원가입 테스트");
+//		
+//		// given
+//		User user = new User();
+//		user.setLoginId("aaaa");
+//		user.setPassword("aaaa");
+//		user.setEmail("aaaa@naver.com");
+//		user.setName("aaaa");
+//		
+//		// when
+//		//User joinUser =  userBO.addUser(user.getLoginId(), user.getPassword(), user.getEmail(), user.getName());
+//	}
 
 
 }
