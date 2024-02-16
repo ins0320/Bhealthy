@@ -59,4 +59,18 @@
  	
  	</select>
  
+ 	<select id="selectUserById" resultType="com.Bhealthy.user.domain.User" >
+	 	SELECT 
+	 				`id`
+					, `loginId`
+					, `password`
+					, `name`
+					, `email`
+					, `createdAt`
+					, `updatedAt`
+		FROM
+					`user`
+		WHERE 
+				`id` = #{id}		
+ 	</select>
  </mapper>

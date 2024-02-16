@@ -39,5 +39,10 @@ public class UserBO {
 	}
 
 
+	// id 일치하는 user 가져오기
+	// input: userId   output: UserEntity 
+	public User getUserById(int id) {
+		return userMapper.selectUserById(id);
+	}
 
 }	

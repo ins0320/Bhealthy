@@ -8,6 +8,7 @@ import com.Bhealthy.post.entity.PostEntity;
 
 public interface PostRepository extends JpaRepository<PostEntity, Integer>  {
 
-	// postId, userId로 post 조회하기
+	// postEntity 조회하기
 	public List<PostEntity> findAll();
+	
 }

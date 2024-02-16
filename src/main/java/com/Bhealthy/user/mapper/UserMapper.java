@@ -20,4 +20,7 @@ public interface UserMapper {
 			@Param("name") String name,
 			@Param("email") String email);
 	
+	public User selectUserById(int id);
+	
+	
 }

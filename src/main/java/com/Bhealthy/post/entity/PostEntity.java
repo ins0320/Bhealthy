@@ -1,6 +1,7 @@
 package com.Bhealthy.post.entity;
 
 import java.time.ZonedDateTime;
+import java.util.Date;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -37,9 +38,10 @@ public class PostEntity {
 	
 	@UpdateTimestamp
 	@Column(name = "createdAt", updatable = false)
-	private ZonedDateTime createdAt;
+	private Date createdAt;
 	
 	@UpdateTimestamp
 	@Column(name = "updatedAt")
 	private ZonedDateTime updatedAt;
+
 }

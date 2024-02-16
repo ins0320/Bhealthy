@@ -21,6 +21,15 @@ public class PostRestController {
 	@Autowired
 	PostBO postBO;
 	
+	
+	
+	/**
+	  * @API: 글 작성  API
+	  * @param content
+	  * @param file
+	  * @param session
+	  * @return
+	 */
 	@PostMapping("/create")
 	public Map<String, Object> postCreate(	
 			@RequestParam("content") String content,

@@ -1,15 +1,11 @@
 package com.Bhealthy.post;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.Bhealthy.post.bo.PostBO;
 import com.Bhealthy.post.entity.PostEntity;
 
@@ -40,7 +36,9 @@ public class PostController {
 			return "redirect:/user/sign-in-view";
 		}
 		
-		List<PostEntity> postList = postBO.getPostList();
+		List<PostEntity> postList = postBO.getPostEntityList();
+		
+		
 		
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "post/list");
@@ -52,4 +50,16 @@ public class PostController {
 		model.addAttribute("viewName", "post/create");
 		return "template/layout";
 	}
+	
+	// 글 하나당 댓글, 공감하기 뿌리기
+	@GetMapping("/detail-view")
+	public String postDetailView(Model model, HttpSession session) {
+		
+		Integer userId = (Integer)session.getAttribute("userId");
+		
+		model.addAttribute("viewName", "post/detail");
+		return "template/layout";
+	}
+	
+	
 }
