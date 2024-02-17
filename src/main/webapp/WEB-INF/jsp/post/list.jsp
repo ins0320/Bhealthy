@@ -28,7 +28,7 @@
  			<c:forEach items="${postList}" var="post">
  				<tr>
  					<td>${post.id }</td>
- 					<td><a href="/post/notice/detail/view?id=${post.id}">${post.content }</a></td>
+ 					<td><a href="/post/detail-view?id=${post.id}">${post.content }</a></td>
  					<td>관리자</td>
  					<td><fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd"/></td>
  				<br>
@@ -36,4 +36,7 @@
  			</c:forEach>	
  			</tbody>	
  	</table>
+ 	<div class="d-flex justify-content-end mt-2">
+	 	<a href="/post/create-view" class="btn btn-info">작성하기</a>
+	</div>
 </div>		

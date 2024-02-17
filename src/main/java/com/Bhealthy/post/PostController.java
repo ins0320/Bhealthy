@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.Bhealthy.post.bo.PostBO;
+import com.Bhealthy.post.domain.Post;
 import com.Bhealthy.post.entity.PostEntity;
 
 import jakarta.servlet.http.HttpSession;
@@ -38,8 +41,6 @@ public class PostController {
 		
 		List<PostEntity> postList = postBO.getPostEntityList();
 		
-		
-		
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "post/list");
 		return "template/layout";
@@ -53,10 +54,14 @@ public class PostController {
 	
 	// 글 하나당 댓글, 공감하기 뿌리기
 	@GetMapping("/detail-view")
-	public String postDetailView(Model model, HttpSession session) {
+	public String postDetailView(@RequestParam("id") Integer id, Model model, HttpSession session) {
 		
 		Integer userId = (Integer)session.getAttribute("userId");
+				
+		List<Post> postViewList = postBO.getPostViewList(userId, id);
+		//List<Post> postViewList = postBO.getPostViewList(id);
 		
+		model.addAttribute("postViewList", postViewList);
 		model.addAttribute("viewName", "post/detail");
 		return "template/layout";
 	}

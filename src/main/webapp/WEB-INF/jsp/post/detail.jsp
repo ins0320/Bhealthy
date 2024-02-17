@@ -3,13 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <div class="d-flex justify-content-center">
 	<div class="contents-box">
-<%-- 타임라인 영역 --%>
+	<%-- 커뮤니티 영역 --%>
 		<div class="timeline-box my-5">
+			<c:forEach items="${postViewList}" var="postView">
 			<%-- 카드1 --%>
 			<div class="card border rounded mt-3">
 				<%-- 글쓴이, 더보기(삭제) --%>
 				<div class="p-2 d-flex justify-content-between">
-					<span class="font-weight-bold">${post.userId}</span>
+					<span class="font-weight-bold">${postView.user.loginId}</span>
 					
 					<%-- (더보기 ... 버튼) 로그인 된 사람과 글쓴이 정보가 일치할 때 노출 --%>
 					...
@@ -29,6 +30,7 @@
 				<div class="card-post m-3">
 					본문
 				</div>
+			</c:forEach>	
 				<%-- 댓글 제목 --%>
 				<div class="card-comment-desc border-bottom">
 					<div class="ml-3 mb-1 font-weight-bold">댓글</div>

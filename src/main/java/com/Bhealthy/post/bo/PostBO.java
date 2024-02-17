@@ -51,18 +51,23 @@ public class PostBO {
 		return postRepository.findAll();
 	}
 	
+	// input: userId, postId  output: List<PostEntity>
+	public List<PostEntity> getPostEntityById(Integer id) {
+		return postRepository.findAllById(id);
+	}
+	
 	
 	// input: userId (비로그인: null, 로그인: userId) output: List<Post>
-	public List<Post> getPostViewList(int userId){
+	public List<Post> getPostViewList(Integer userId, Integer id){
 		
-		// post 글 객체 리스트
+		// post 글 객체 리스트 (최종)
 		List<Post> postViewList = new ArrayList<>();
 		
-		// 글 목록 가져오기
-		List<PostEntity> postList = getPostEntityList(); 
+		// id별 글 목록 가져오기
+		List<PostEntity> postEntityList = getPostEntityById(id);
 		
 		// 글 목록 반복문 순회
-		for(PostEntity post : postList) {
+		for(PostEntity post : postEntityList) {
 			
 			// post 하나에 대응되는 하나의 view 만든다.
 			Post postView = new Post();
@@ -74,10 +79,15 @@ public class PostBO {
 			User user = userBO.getUserById(post.getUserId());
 			postView.setUser(user);
 			
+			
+			// 최종: postViewList에 postView를 넣는다.
+			postViewList.add(postView);
+			
 		}
-				
-		}
-		
-		
+			
+		return postViewList;
 	}
+		
+		
+	
 }
