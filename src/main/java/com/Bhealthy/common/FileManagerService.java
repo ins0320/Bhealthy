@@ -10,13 +10,17 @@ import java.util.UUID;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Component // spring bean으로 등록
 public class FileManagerService {
 
-	// 실제 업로드 된 이미지가 저장될 경로(서버)
+	// 파일 경로(실제 업로드 된 이미지가 저장될 경로(서버))
 	// public static final String FILE_UPLOAD_PATH = "D:\\김유정\\6_springProject\\Bhealthy\\Bhealthy_workspace\\images/";
 	public static final String FILE_UPLOAD_PATH = "D:\\megastudy2\\spring_project\\workspace\\images/";
 	
+	// 파일 생성
 	// input:File 원본, userLoginId(폴더명)  output: 이미지 경로
 	public String saveFile(String loginId, MultipartFile file) {
 	
@@ -58,5 +62,35 @@ public class FileManagerService {
 	 // uuid 생성
 		public static String getUuid() {
 			return UUID.randomUUID().toString().replaceAll("-", "");
+		}
+		
+		
+		// 파일 삭제
+		// input: imagePath
+		// output: void
+		public void deleteFile(String imagePath) { // imagePath: /images/aaaa_1823478932/sun.png
+			// FILE_UPLOAD_PATH: "D:\\김유정\\6_springProject\\Bhealthy\\Bhealthy_workspace\\images/";
+			// directoryName:  /images/aaaa_1823478932/sun.png
+			// 주소에 겹치는 /images/ 를 제거한다.	
+			Path path = Paths.get(FILE_UPLOAD_PATH + imagePath.replace("/images/", ""));	
+		
+			// 이미지 삭제
+			if (Files.exists(path)) { // 이미지가 존재하는가?
+				try {
+					Files.delete(path); // 이미지 삭제
+				} catch (IOException e) {
+					log.info("#####[FileManagerService 이미지 삭제 실패] imagePath:{}", imagePath);
+				} 
+			}
+			
+			// 디렉토리(폴더) 삭제
+			path = path.getParent();	// path의 부모
+			if (Files.exists(path)) {
+				try {
+					Files.delete(path);
+				} catch (IOException e) {
+					log.info("###[FileManagerService 이미지 폴더 삭제 실패] imagePath:{}", imagePath);
+				}
+			}
 		}
 }

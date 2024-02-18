@@ -27,6 +27,7 @@ public class PostController {
 		return "template/layout";
 	}
 
+	// 글 목록
 	@GetMapping("/list-view")
 	public String postListView(
 			Model model
@@ -46,12 +47,14 @@ public class PostController {
 		return "template/layout";
 	}
 	
+	// 글 작성
 	@GetMapping("/create-view")
 	public String postCreateView(Model model) {
 		model.addAttribute("viewName", "post/create");
 		return "template/layout";
 	}
 	
+	// 작성된 글 뿌리기
 	// 글 하나당 댓글, 공감하기 뿌리기
 	@GetMapping("/detail-view")
 	public String postDetailView(@RequestParam("id") Integer id, Model model, HttpSession session) {

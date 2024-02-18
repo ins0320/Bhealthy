@@ -15,6 +15,9 @@ import com.Bhealthy.post.repository.PostRepository;
 import com.Bhealthy.user.bo.UserBO;
 import com.Bhealthy.user.domain.User;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class PostBO {
 
@@ -27,11 +30,13 @@ public class PostBO {
 	@Autowired
 	private FileManagerService fileManagerService;
 	
+	// 글 추가
 	// input: userId, userLoginId, content, file  output:  Integer id(pk) 
-	public Integer addUser(int userId, String userLoginId, String content, MultipartFile file) {
+	public Integer addPost(int userId, String userLoginId, String content, MultipartFile file) {
 		
 		// 이미지 업로드 (업로드할 이미지가 있을 때 업로드)
 		String imagePath = null;
+		
 		if (file != null) {
 			imagePath = fileManagerService.saveFile(userLoginId, file);
 		}
@@ -46,17 +51,39 @@ public class PostBO {
 		return postEntity == null ? null: postEntity.getId();
 	}
 	
+	// 글 삭제
+	public void  deletePostByIdAndUserId(int id, int userId) {
+		
+		// 기존 글 가져오기
+		PostEntity post = postRepository.findById(id).orElse(null);
+		
+		if (post == null) {
+			log.error("[delete post] postId:{}, userId:{}", id, userId);
+			return;
+		}
+		
+		// 글 삭제
+		postRepository.delete(post);
+
+		// 이미지 있으면 삭제
+		fileManagerService.deleteFile(post.getImagePath());
+	}
+	
+	// 글 가져오기
 	// input: userId, postId  output: List<PostEntity>
 	public List<PostEntity> getPostEntityList() {
 		return postRepository.findAll();
 	}
 	
+	// id로 글 가져오기
 	// input: userId, postId  output: List<PostEntity>
 	public List<PostEntity> getPostEntityById(Integer id) {
 		return postRepository.findAllById(id);
 	}
 	
 	
+	
+	// 작성된 글 뿌리기
 	// input: userId (비로그인: null, 로그인: userId) output: List<Post>
 	public List<Post> getPostViewList(Integer userId, Integer id){
 		

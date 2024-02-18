@@ -11,19 +11,21 @@ import jakarta.servlet.http.HttpSession;
 @RequestMapping("/user")
 public class UserController {
 
-	
+	// 로그인
 	@GetMapping("/sign-in-view")
 	public String signInView(Model model){
 		model.addAttribute("viewName", "user/signIn");
 		return "template/layout";
 	}
 	
+	// 회원가입
 	@GetMapping("/sign-up-view")
 	public String signUpView(Model model) {
 		model.addAttribute("viewName", "user/signUp");
 		return "template/layout";
 	}
 	
+	// 로그아웃
 	@RequestMapping("/sign-out")
 	public String signOut(HttpSession session) {
 		// 세션에 있는 내용을 모두 비운다.

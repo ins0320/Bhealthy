@@ -11,10 +11,13 @@
 			<c:forEach items="${postViewList}" var="postView">
 				<%-- 글쓴이, 더보기(삭제) --%>
 				<div class="p-2 d-flex justify-content-between">
-					<span class="font-weight-bold">${postView.user.loginId}</span>
-					
+					<span class="font-weight-bold">${postView.user.loginId}</span>	
 					<%-- (더보기 ... 버튼) 로그인 된 사람과 글쓴이 정보가 일치할 때 노출 --%>
-					...
+					<c:if test="${userId eq postView.post.userId}">
+					<a href="#" class="more-btn" data-toggle="modal" data-target="#modal" data-post-id="${postView.post.id}">
+						<img src="https://www.iconninja.com/files/860/824/939/more-icon.png" width="30">
+					</a>
+					</c:if>
 				</div>	
 				
 				<%-- 커뮤니티 이미지 --%>
@@ -52,3 +55,67 @@
 		</div><%--// 커뮤니티 영역 끝  --%>
 	</div> <%--// contents-box 끝  --%>
 </div>	
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<%-- 
+		modal-sm: 작은 모달창 
+		modal-dialog-centered: 수직 기준 가운데 위치
+	--%>
+	<div class="modal-dialog modal-sm modal-dialog-centered">
+		<div class="modal-content text-center">
+			<div class="py-3 border-bottom">
+    			<a href="#" id="postDelete">삭제하기</a>
+    		</div>
+			<div class="py-3">
+    			<a href="#" data-dismiss="modal">취소하기</a>
+    		</div>
+		</div>
+	</div>
+</div>
+
+
+<script>
+	$(document).ready(function() {
+		
+		
+		// 더보기(...) 클릭 => 모달 띄우기
+		$(".more-btn").on('click', function(e) {
+			e.preventDefault(); // a 태그 올라가는 현상 방지
+			
+			let postId = $(this).data("post-id"); // getting
+			//alert(postId);
+			
+			// 1개로 존재하는 모달에 재활용을 위해 data-post-id를 심는다.
+			$("#modal").data("post-id", postId); // setting
+		});	
+		
+		// 모달 안에 있는 삭제하기 클릭
+		$("#modal #postDelete").on('click', function(e) {
+			e.preventDefault(); // a 태그 위로 올라가는 현상 방지
+			
+			let postId = $("#modal").data("post-id");
+			//alert(postId);
+			
+			// 글 삭제
+			$.ajax({
+				type:"delete"
+				, url:"/post/delete"
+				, data: {"id":postId}
+				, success: function(data) {
+					if (data.code == 200) {
+						location.reload(true);
+					} else {
+						alert(data.error_message);
+					}
+				}
+				, error: function(e) {
+					alert("삭제하는데 실패했습니다. 관리자에게 문의해주세요.");
+				}
+			});
+			
+		});
+	}); //----- document
+</script>
