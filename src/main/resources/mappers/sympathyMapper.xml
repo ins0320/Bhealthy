@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.Bhealthy.sympathy.mapper.SympathyMapper">
+
+	<insert id="insertSympathy" parameterType="map">
+		INSERT INTO
+			`sympathy`
+		(
+			`postId`
+			, `userId`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES
+		(
+			#{postId}
+			, #{userId}
+			, now()
+			, now()
+		)	
+	
+	</insert>
+
+	<select id="selectSympathyByPostIdOrUserId"  parameterType="map" resultType="int">
+		SELECT
+			*
+		FROM
+			`sympathy`
+		WHERE		
+			`postId` = #{postId}
+		<if test="userId != null">
+		AND
+			`userId` = #{userId}
+		</if>		
+		
+	</select>
+
+
+	<delete id="deleteSympathyByPostIdOrUserId">
+ 		DELETE FROM
+ 			`sympathy`
+ 		WHERE
+ 			`postId` = #{postId}			
+ 		<if test="userId != null">
+		AND
+			`userId` = #{userId}
+		</if>	
+ 	</delete>
+
+</mapper>

@@ -12,6 +12,7 @@ import com.Bhealthy.common.FileManagerService;
 import com.Bhealthy.post.domain.Post;
 import com.Bhealthy.post.entity.PostEntity;
 import com.Bhealthy.post.repository.PostRepository;
+import com.Bhealthy.sympathy.bo.SympathyBO;
 import com.Bhealthy.user.bo.UserBO;
 import com.Bhealthy.user.domain.User;
 
@@ -29,6 +30,9 @@ public class PostBO {
 	
 	@Autowired
 	private FileManagerService fileManagerService;
+	
+	@Autowired
+	private SympathyBO sympathyBO;
 	
 	// 글 추가
 	// input: userId, userLoginId, content, file  output:  Integer id(pk) 
@@ -105,6 +109,10 @@ public class PostBO {
 			// 글쓴이 정보 (비 로그인 시에도 보임, 삭제 버튼에 사용)
 			User user = userBO.getUserById(post.getUserId());
 			postView.setUser(user);
+			
+			// 공감 개수
+			int sympathyCount = sympathyBO.getSympathyByPostId(post.getId());
+			postView.setSympathyCount(sympathyCount);
 			
 			
 			// 최종: postViewList에 postView를 넣는다.
