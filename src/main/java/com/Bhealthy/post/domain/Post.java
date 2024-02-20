@@ -1,5 +1,8 @@
 package com.Bhealthy.post.domain;
 
+import java.util.List;
+
+import com.Bhealthy.comment.domain.CommentView;
 import com.Bhealthy.post.entity.PostEntity;
 import com.Bhealthy.user.domain.User;
 
@@ -23,4 +26,7 @@ public class Post {
 	
 	// 로그인 된 사람이 좋아요를 누른지 여부
 	private boolean filledSympathy;
+	
+	// 댓글
+	private List<CommentView> commentViewList;
 }

@@ -61,7 +61,7 @@ public class PostController {
 		
 		Integer userId = (Integer)session.getAttribute("userId");
 				
-		List<Post> postViewList = postBO.getPostViewList(userId, id);
+		List<Post> postViewList = postBO.generatePostViewList(userId, id);
 		//List<Post> postViewList = postBO.getPostViewList(id);
 		
 		model.addAttribute("postViewList", postViewList);

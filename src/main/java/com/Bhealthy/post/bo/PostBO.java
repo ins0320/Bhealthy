@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.Bhealthy.comment.bo.CommentBO;
+import com.Bhealthy.comment.domain.Comment;
+import com.Bhealthy.comment.domain.CommentView;
 import com.Bhealthy.common.FileManagerService;
 import com.Bhealthy.post.domain.Post;
 import com.Bhealthy.post.entity.PostEntity;
@@ -33,6 +36,9 @@ public class PostBO {
 	
 	@Autowired
 	private SympathyBO sympathyBO;
+	
+	@Autowired
+	private CommentBO commentBO;
 	
 	// 글 추가
 	// input: userId, userLoginId, content, file  output:  Integer id(pk) 
@@ -89,7 +95,7 @@ public class PostBO {
 	
 	// 작성된 글 뿌리기
 	// input: userId (비로그인: null, 로그인: userId) output: List<Post>
-	public List<Post> getPostViewList(Integer userId, Integer id){
+	public List<Post> generatePostViewList(Integer userId, Integer id){
 		
 		// post 글 객체 리스트 (최종)
 		List<Post> postViewList = new ArrayList<>();
@@ -118,6 +124,13 @@ public class PostBO {
 			// 로그인된 사람이 좋아요를 했는지 여부(비로그인 사용자 고려)
 			boolean filledLike = sympathyBO.getsympathyCountByPostId(post.getId(), userId);
 			postView.setFilledSympathy(filledLike);
+			
+			
+			// 댓글리스트( postId, userId)
+			//commentBO
+			List<CommentView> commentList = commentBO.generateCommentViewListByPostId(post.getId());
+			
+			postView.setCommentViewList(commentList);
 			
 			// 최종: postViewList에 postView를 넣는다.
 			postViewList.add(postView);

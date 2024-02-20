@@ -48,7 +48,6 @@
 				<div class="post-content m-3">
 					<span>${postView.post.content}</span>
 				</div>
-			</c:forEach>	
 				<%-- 댓글 제목 --%>
 				<div class="post-comment-desc border-bottom">
 					<div class="ml-3 mb-1 font-weight-bold">댓글</div>
@@ -56,16 +55,28 @@
 				
 				<%-- 댓글 목록 --%>
 				<div class="post-comment-list m-2">
-					댓글들
-					
+				<c:forEach items="${postView.commentViewList}" var="commentView">
+				<div class="card-comment m-1">
+						<span class="font-weight-bold">${commentView.user.loginId}</span>
+						<span>${commentView.comment.content}</span>
+						
+						<%-- 댓글 삭제 버튼(자신의 댓글만 삭제 버튼 노출) --%>
+						<c:if test="${userId eq commentView.comment.userId }">
+						<a href="#" class="comment-del-btn" data-comment-id="${commentView.comment.id}">
+							<img src="https://www.iconninja.com/files/603/22/506/x-icon.png" width="10" height="10">
+						</a>
+						</c:if>
+				
+				</div>
+				</c:forEach>
 					<%-- 댓글 쓰기 --%>
 					<div class="post-comment-write d-flex border-top mt-2">
-						<input type="text" class="form-control border-0 mr-2 comment-input" placeholder="댓글 달기"/> 
-						<button type="button" class="comment-btn btn btn-light">게시</button>
+						<input type="text" class="form-control border-0 mr-2 content-input" placeholder="댓글 달기"/> 
+						<button type="button" class="comment-btn btn btn-light" data-user-id="${userId}" data-post-id="${postView.post.id}">게시</button>
 					</div>
 				</div> <%--// 댓글 목록 끝 --%>
 			</div> <%--// 글 1개 끝 --%>
-			
+		</c:forEach>		
 		</div><%--// 커뮤니티 영역 끝  --%>
 	</div> <%--// contents-box 끝  --%>
 </div>	
@@ -104,7 +115,7 @@
 			
 			// 1개로 존재하는 모달에 재활용을 위해 data-post-id를 심는다.
 			$("#modal").data("post-id", postId); // setting
-		});	
+		});
 		
 		// 모달 안에 있는 삭제하기 클릭
 		$("#modal #postDelete").on('click', function(e) {
@@ -128,10 +139,11 @@
 				, error: function(e) {
 					alert("삭제하는데 실패했습니다. 관리자에게 문의해주세요.");
 				}
-			});
+			}); 
 			
-		}); // ---- modal
+		}); // ---- modal 글 삭제
 		
+		// 공감하기 생성/삭제
 		$(".sym-btn").on('click', function(e){
 			e.preventDefault();
 			// alert("공감");
@@ -155,6 +167,63 @@
 						alert("좋아요를 하는데 실패했습니다.");
 				}	
 			});
-		}); // ---- sympathy
-	}); //----- document
+		}); // ---- 공감하기 생성/삭제
+		
+		// 댓글 작성하기
+		$(".comment-btn").on('click',function(){
+			// alert("댓글");
+			let userId = $(this).data("user-id");	
+			// alert(userId);
+			if (!userId) {
+				// 비로그인이면 로그인 화면 이동
+				alert("로그인을 해주세요.");
+				location.href = "/user/sign-in-view";
+				return;
+			}
+			
+			let postId = $(this).data("post-id");
+			// alert(postId);
+			let content = $(".content-input").val();
+			// alert(content);
+			
+			$.ajax({
+				type:"post"
+				, url:"/comment/create"
+				, data:{"postId": postId, "content": content}
+				, success: function(data){
+					if(data.code == 200){
+						location.reload(true);
+					} else if (data.code == 500) {
+						alert(data.errorMessage);
+						location.href = "/user/sign-in-view";
+					}
+				}
+				,error: function(request, status, error){
+					alert("댓글을 작성하는데 실패했습니다.");
+				}
+				
+			});
+		}); // ---- 댓글 작성하기
+		
+		// 댓글 삭제하기
+		$(".comment-del-btn").on('click', function(){
+			let commentId = $(this).data("comment-id");
+			// alert(commentId);
+			$.ajax({
+					type:"DELETE"
+					, url:"/comment/delete"
+					, data:{"commentId":commentId}
+					, success:function(data) {
+						if (data.code == 200) {
+							location.reload(true);
+						} else {
+							alert(data.error_message);
+						}
+					}
+					, error:function(request, status, error) {
+						alert("댓글 삭제 하는데 실패했습니다.");
+					}
+			});
+		});
+	});
 </script>
