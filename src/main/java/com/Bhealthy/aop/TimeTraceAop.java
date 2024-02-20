@@ -34,7 +34,6 @@ public class TimeTraceAop {
 		log.info("#### 실행시간(ms): {}", stopWatch.getTotalTimeMillis());
 		log.info("@@@@@ 실행시간" +  stopWatch.prettyPrint());
 		
-		return proceedObj;
-		
+		return proceedObj;		
 	}
 }
