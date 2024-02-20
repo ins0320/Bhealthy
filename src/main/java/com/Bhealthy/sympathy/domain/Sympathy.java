@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 @Data // lombok
 public class Sympathy {
+	
 	private int postId;
 	private int userId;
 	private Date createdAt;

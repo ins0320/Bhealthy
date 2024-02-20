@@ -21,6 +21,12 @@ public class SympathyRestController {
 	// GET: /like?postId=13  @RequestParam("postId")
 	// GET: /like/13   @PathVariable
 	
+	/**
+	 * @API: 공감하기 토글(추가/삭제) API
+	 * @param postId
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/sympathy/{postId}")
 	public Map<String, Object> sympathyToggle(
 			@PathVariable(name = "postId") int postId,
