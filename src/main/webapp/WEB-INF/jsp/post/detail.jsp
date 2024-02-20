@@ -132,9 +132,29 @@
 			
 		}); // ---- modal
 		
-		$("sym-btn").on('click', function(e){
+		$(".sym-btn").on('click', function(e){
 			e.preventDefault();
-			alert("공감");
-		});
+			// alert("공감");
+			
+			let postId = $(this).data("post-id");
+			// alert(postId);
+			
+			$.ajax({
+				url:"/sympathy/" + postId
+				, success:function(data) {
+					if (data.code == 200) {
+						// 성공
+						location.reload(true); // 새로고침 => timeline view화면
+					} else if (data.code == 300) {
+						// 비로그인 시 로그인 페이지로 이동
+						alert(data.error_message);
+						location.href = "/user/sign-in-view";
+					}
+				}	
+				, error:function(request, status, error) {
+						alert("좋아요를 하는데 실패했습니다.");
+				}	
+			});
+		}); // ---- sympathy
 	}); //----- document
 </script>

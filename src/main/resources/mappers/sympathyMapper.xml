@@ -21,22 +21,41 @@
 		)	
 	
 	</insert>
-
-	<select id="selectSympathyByPostIdOrUserId"  parameterType="map" resultType="int">
+<!--  
+	<select id="selectSympathyCountByPostIdOrUserId" resultType="int">
 		SELECT
-			*
+			COUNT(1)
 		FROM
 			`sympathy`
 		WHERE		
 			`postId` = #{postId}
-		<if test="userId != null">
-		AND
-			`userId` = #{userId}
-		</if>		
-		
 	</select>
 
-
+	<select id="selectSympathyCountByPostIdUserId"  parameterType="map" resultType="int">
+		SELECT
+			COUNT(1)
+		FROM
+			`sympathy`
+		WHERE		
+			`postId` = #{postId}
+		AND
+	 		`userId` = #{userId}	
+	</select>
+-->
+	<select id="selectSympathyCountByPostOrIdUserId"  parameterType="map" resultType="int">
+		SELECT
+			COUNT(1)
+		FROM
+			`sympathy`
+		WHERE		
+			`postId` = #{postId}			
+ 			
+ 			<if test="userId != null">
+	 		AND
+	 			`userId` = #{userId}
+ 			</if>	
+	</select>
+	
 	<delete id="deleteSympathyByPostIdOrUserId">
  		DELETE FROM
  			`sympathy`
