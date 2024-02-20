@@ -32,11 +32,10 @@
 			
 			//alert(file);
 			
-		 	// validation
-			/* if (!content) {
+			if(!content){
 				alert("내용을 입력하세요.");
 				return;
-			} */
+			}
 		
 			// 파일이 업로드 된 경우에만 확장자 체크
 			if(file) {
