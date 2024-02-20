@@ -52,7 +52,7 @@
 				}
 			}
 			
-			alert(file);
+			//alert(file);
 			// form 태그를 js에서 만든다.
 			// 이미지를 업로드 할 때는 반드시 form 태그가 있어야 한다.
 			let formData = new FormData();
