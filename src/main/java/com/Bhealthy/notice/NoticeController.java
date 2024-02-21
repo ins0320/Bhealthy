@@ -18,12 +18,36 @@ public class NoticeController {
 	@Autowired
 	private NoticeBO noticeBO;
 	
+	
+	// 관리자 페이지
 	@GetMapping("/admin/notice/create-view")
-	public String noticeCreate(Model model) {
-		model.addAttribute("viewName", "notice/create");
+	public String adminNoticeCreate(Model model) {
+		model.addAttribute("viewName", "notice/adminCreate");
 		return "template/layout";
 	}
 	
+	@GetMapping("/admin/notice/list")
+	public String adminNoticeList( Model model) {
+		
+		List<NoticeEntity> noticeList = noticeBO.getNoticeEntity();
+		
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("viewName", "notice/adminList");
+		return "template/layout";
+	}
+	
+	@GetMapping("/admin/notice/detail-view")
+	public String AdminNoticeDetailView(@RequestParam("id") int id, Model model) {
+		
+		List<NoticeEntity> noticeList = noticeBO.getNoticeEntityById(id);
+		
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("viewName", "notice/adminDetail");
+		return "template/layout";
+	};
+	
+	
+	// 일반 사용자 페이지	
 	@GetMapping("/notice/list")
 	public String noticeList( Model model) {
 		
@@ -43,4 +67,6 @@ public class NoticeController {
 		model.addAttribute("viewName", "notice/detail");
 		return "template/layout";
 	};
+	
+
 }

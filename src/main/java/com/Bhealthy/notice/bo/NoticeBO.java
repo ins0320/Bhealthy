@@ -25,6 +25,10 @@ public class NoticeBO {
 				);
 
 	}
+	// input: postId  output: x
+	public void deleteNotice(int id) {
+		noticeRepository.deleteById(id);
+	}
 	
 	// input: x output: List<NoticeEntity>
 	public List<NoticeEntity> getNoticeEntity(){

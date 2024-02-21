@@ -8,7 +8,7 @@
 		<textarea id="content" class="form-control mt-3 content" placeholder="내용을 입력하세요" rows="10"></textarea>
 		
 		<div class="d-flex justify-content-between">
-			<button type="button" id="postListBtn" class="btn btn-dark">목록</button>
+			<a href="/admin/notice/list"class="btn btn-dark">목록</a>
 			
 			<div>
 				<button type="button" id="updateBtn" class="btn btn-secondary">수정</button>
@@ -41,7 +41,7 @@
 			$.post("/admin/notice/create", {"title":title, "content":content})// request
 			.done(function(data) { // response
 				if (data.code == 200) {
-					location.href="/notice/list";
+					location.href="/admin/notice/list";
 				} else{
 					alert(data.error_message);
 				}
