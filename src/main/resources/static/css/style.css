@@ -3,7 +3,6 @@
 header, footer {height:80px;}
 /* color */
 .font-color{color:#5D8A5D;}
-.title{ font-size: 70px;  font-family: 'Song Myung', serif;}
 .italic{font-style: italic;}
 .beige-color{ color: #BDC0C0;}
 .black-color{color: black;}
@@ -33,7 +32,8 @@ header, footer {height:80px;}
 .post-creat-outer{ display: flex; justify-content: center; align-content: center;}
 .post-creat-inner{width: 40px; height: 50px; margin: auto;}
 .main-article{background-color:rgb(224, 224, 224); width:500px;}
-.main-text{font-size:100px; color:white; text-shadow: 3px 4px 5px gray;}
+.main-title{ font-size: 70px;  font-family: 'Song Myung', serif;}
+.main-post-text{font-size:100px; color:white; text-shadow: 3px 4px 5px gray;}
 .sub-text{font-size:30px; color:rgb(158, 158, 158);}
 .contents-box {width:650px;}
 .post-content{font-size: 20px;}

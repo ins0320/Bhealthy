@@ -31,7 +31,7 @@
 	<!-- /bener -->		
 	<div class="main-article mt-3 align-items-center justify-content-center mt-3">
 		<br>
-		<div class="main-text text-center mt-5 p-3">Bhealthy</div>
+		<div class="main-post-text text-center mt-5 p-3">Bhealthy</div>
 		<pre class="sub-text ml-5">1:1 필라테스 관리의 시작</pre>
 	</div>	
 </div>

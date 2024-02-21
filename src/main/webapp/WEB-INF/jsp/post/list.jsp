@@ -29,7 +29,7 @@
  				<tr>
  					<td>${post.id }</td>
  					<td><a href="/post/detail-view?id=${post.id}">${post.content }</a></td>
- 					<td>관리자</td>
+ 					<td>${post.userId}</td>
  					<td><fmt:formatDate value="${post.createdAt}" pattern="yyyy-MM-dd"/></td>
  				<br>
  				</tr>

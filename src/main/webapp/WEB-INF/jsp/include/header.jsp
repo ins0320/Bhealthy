@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<div class="h-100 d-flex justify-content-between align-items-center">
-		<div class="title font-color">Bhealthy</div>
+		<div class="main-title font-color">Bhealthy</div>
 		<div class="d-flex">
 			<!-- 로그인 -->
 			<c:if test="${not empty userId }">

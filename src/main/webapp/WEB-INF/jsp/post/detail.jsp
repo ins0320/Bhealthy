@@ -21,7 +21,7 @@
 				</div>	
 				<%-- 커뮤니티 이미지 --%>
 				<div class="post-img">
-					<img src="${postView.post.imagePath}" class="w-100" alt="본문 이미지">
+					<img src="${postView.post.imagePath}" class="w-100" alt="이미지가 없습니다.">
 				</div>
 				
 				<%-- 공감하기 --%>

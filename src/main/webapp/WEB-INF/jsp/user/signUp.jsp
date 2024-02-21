@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div class="d-flex justify-content-center">
 	<div class="sign-up-box">
-		<div class="title">Bhealthy</div>
+		<div class="main-title">Bhealthy</div>
 		<div class="mt- ml-2"> Bhealthy 회원 서비스 입니다.</div>
 		<form id="signUpForm" method="post" action="/user/sign-up">
 			<div class="mt-4"></div>
