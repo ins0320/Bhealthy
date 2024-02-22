@@ -26,7 +26,7 @@ public class NoticeController {
 		return "template/layout";
 	}
 	
-	@GetMapping("/admin/notice/list")
+	@GetMapping("/admin/notice/list-view")
 	public String adminNoticeList( Model model) {
 		
 		List<NoticeEntity> noticeList = noticeBO.getNoticeEntity();
@@ -48,7 +48,7 @@ public class NoticeController {
 	
 	
 	// 일반 사용자 페이지	
-	@GetMapping("/notice/list")
+	@GetMapping("/notice/list-view")
 	public String noticeList( Model model) {
 		
 		List<NoticeEntity> noticeList = noticeBO.getNoticeEntity();

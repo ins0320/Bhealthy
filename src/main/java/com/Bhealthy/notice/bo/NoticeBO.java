@@ -14,7 +14,7 @@ public class NoticeBO {
 	@Autowired
 	private NoticeRepository noticeRepository;
 	
-	// input: title, content   output: x
+	// input: title,content   output: x
 	public void addNotice(String title, String content) {
 		
 		NoticeEntity noticeEntity = noticeRepository.save(
@@ -28,6 +28,18 @@ public class NoticeBO {
 	// input: postId  output: x
 	public void deleteNotice(int id) {
 		noticeRepository.deleteById(id);
+	}
+	
+	// input: id,title,content  output: x
+	public void updateNotice(int id, String title, String content) {
+		NoticeEntity noticeEntity = noticeRepository.findById(id).orElse(null);
+		if(noticeEntity != null) {
+			noticeEntity = noticeEntity.toBuilder()
+							.title(title)
+							.content(content)
+							.build();
+			noticeEntity = noticeRepository.save(noticeEntity);			
+		}
 	}
 	
 	// input: x output: List<NoticeEntity>

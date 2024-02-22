@@ -46,4 +46,21 @@ public class NoticeRestController {
 		return result;
 	}
 	
+	@PostMapping("/admin/notice/update")
+	public Map<String, Object> noticeUpdate(
+			@RequestParam("postId") int postId,
+			@RequestParam("title") String title,
+			@RequestParam("content") String content){
+		
+		noticeBO.updateNotice(postId, title, content);
+		
+		// 응답값
+		Map<String, Object> result = new HashMap<>();
+				
+		result.put("code", 200);
+		result.put("result", "success");
+			
+		return result;
+	}
+	
 }

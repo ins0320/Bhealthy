@@ -12,5 +12,5 @@
 	<pre class="ml-5 notice-text">${notice.content}</pre>
 </c:forEach>	
  <div class="d-flex justify-content-end mt-5 mr-5">
-	<a href="/notice/list" class="btn btn-info">목록으로</a>
+	<a href="/notice/list-view" class="btn btn-info">목록으로</a>
  </div>

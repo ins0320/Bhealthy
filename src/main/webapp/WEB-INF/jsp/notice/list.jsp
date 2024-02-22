@@ -25,9 +25,4 @@
  			</c:forEach>	
  			</tbody>	
  	</table>
- 	<c:if test="${userName eq 'admin' }">
-	 	<div class="d-flex justify-content-end mt-2">
-		 	<a href="/admin/notice/create-view" class="btn btn-info">작성하기</a>
-		</div>
-	</c:if>	
 </div>	

@@ -41,7 +41,7 @@
 			$.post("/admin/notice/create", {"title":title, "content":content})// request
 			.done(function(data) { // response
 				if (data.code == 200) {
-					location.href="/admin/notice/list";
+					location.href="/admin/notice/list-view";
 				} else{
 					alert(data.error_message);
 				}
