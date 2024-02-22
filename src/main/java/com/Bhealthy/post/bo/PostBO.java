@@ -14,6 +14,7 @@ import com.Bhealthy.comment.domain.CommentView;
 import com.Bhealthy.common.FileManagerService;
 import com.Bhealthy.post.domain.Post;
 import com.Bhealthy.post.entity.PostEntity;
+import com.Bhealthy.post.mapper.PostMapper;
 import com.Bhealthy.post.repository.PostRepository;
 import com.Bhealthy.sympathy.bo.SympathyBO;
 import com.Bhealthy.user.bo.UserBO;
@@ -27,6 +28,9 @@ public class PostBO {
 
 	@Autowired
 	private PostRepository postRepository;
+	
+	@Autowired
+	private PostMapper postMapper;
 	
 	@Autowired
 	private UserBO userBO;
@@ -81,8 +85,8 @@ public class PostBO {
 	
 	// 글 가져오기
 	// input: userId, postId  output: List<PostEntity>
-	public List<PostEntity> getPostEntityList() {
-		return postRepository.findAll();
+	public List<Post> getPostListBySort(int sort) {
+		return postMapper.selectPostListBySort(sort);
 	}
 	
 	// id로 글 가져오기
