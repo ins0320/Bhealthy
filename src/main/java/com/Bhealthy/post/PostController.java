@@ -44,6 +44,7 @@ public class PostController {
 		
 		List<Post> postList = postBO.getPostListBySort(sortId);
 		
+		model.addAttribute("sortId", sortId);
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "post/list");
 		return "template/layout";
