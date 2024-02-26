@@ -3,13 +3,37 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.Bhealthy.post.mapper.PostMapper">
-	<select id="selectPostListBySort" resultType="com.Bhealthy.post.domain.Post">
+	<select id="selectPostListBySort" resultType="com.Bhealthy.post.entity.PostEntity">
 		<choose>
 			<when test="sort == 1">
-			SELECT
-					*
+			SELECT `id`, `userId`, `content`, `createdAt`
+			FROM  
+					`post`
+			ORDER BY 
+					`createdAt` DESC
+
+			</when>
+			<when test="sort == 2">
+			SELECT A.id, A.userId, A.content, A.createdAt, count(B.postId) AS count
 			FROM
-				`post`
+				`post` AS A
+			LEFT JOIN `sympathy` AS B
+			ON A.`id` = B.`postId`
+			GROUP BY
+					 a.id
+			ORDER BY  
+					`count` desc
+			</when>
+			<when test="sort == 3">
+			SELECT A.id, A.userId, A.content, A.createdAt, count(B.postId) AS count
+			FROM 
+				`post` AS A
+			LEFT JOIN `comment` AS B
+			ON A.`id` = B.`postId`
+			GROUP BY 
+					a.id
+			ORDER BY 
+					count desc;	
 			</when>
 		</choose>
 			

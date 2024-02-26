@@ -13,6 +13,7 @@ import com.Bhealthy.post.bo.PostBO;
 import com.Bhealthy.post.domain.Post;
 import com.Bhealthy.post.entity.PostEntity;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/post")
@@ -33,7 +34,8 @@ public class PostController {
 	public String postListView(
 			@PathVariable(name = "sortId") int sortId
 			,Model model
-			, HttpSession session ) {
+			, HttpSession session
+			, HttpServletRequest request) {
 		
 		// 로그인 여부 조회
 		Integer userId = (Integer)session.getAttribute("userId");
@@ -41,12 +43,15 @@ public class PostController {
 			// 비로그인이면 로그인 페이지로 이동
 			return "redirect:/user/sign-in-view";
 		}
+		List<PostEntity> postList = postBO.getPostListBySort(sortId);
 		
-		List<Post> postList = postBO.getPostListBySort(sortId);
 		
 		model.addAttribute("sortId", sortId);
 		model.addAttribute("postList", postList);
 		model.addAttribute("viewName", "post/list");
+		
+		
+		
 		return "template/layout";
 	}
 	
