@@ -34,17 +34,6 @@ class UserBOTest {
 	@Autowired
 	UserMapper userMapper;
 	
-//	@BeforeEach
-//    void beforeEach() {
-//		User user = new User();
-//		user.setLoginId("aaaa");
-//		user.setPassword("aaaa");
-//		user.setEmail("aaaa");
-//		user.setName("aaaa");
-//		userBO.addUser(user.getLoginId(), user.getPassword(), user.getEmail(), user.getName());
-//    }
-//	
-	
 	//@Test
 	void 로그인() {
 		log.info("$$$$$$ 로그인 테스트");
@@ -82,21 +71,8 @@ class UserBOTest {
 
 	}
 	
-//	
-//	@Test
-//	void 회원가입() {
-//		log.info("@@@@@ 회원가입 테스트");
-//		
-//		// given
-//		User user = new User();
-//		user.setLoginId("aaaa");
-//		user.setPassword("aaaa");
-//		user.setEmail("aaaa@naver.com");
-//		user.setName("aaaa");
-//		
-//		// when
-//		//User joinUser =  userBO.addUser(user.getLoginId(), user.getPassword(), user.getEmail(), user.getName());
-//	}
+
+	
 
 
 }
