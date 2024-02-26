@@ -71,7 +71,7 @@
 				, success: function(data){
 					if (data.code == 200) {
 						alert("메모가 저장되었습니다.");
-						location.href ="/post/list-view";
+						location.href ="/post/list-view/1";
 					} else {
 						alert(data.error_message);
 					}

@@ -131,7 +131,7 @@
 				, data: {"id":postId}
 				, success: function(data) {
 					if (data.code == 200) {
-						location.reload(true);
+						location.href="/post/list-view/1";
 					} else {
 						alert(data.error_message);
 					}

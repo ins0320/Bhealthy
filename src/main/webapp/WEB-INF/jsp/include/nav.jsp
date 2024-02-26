@@ -7,7 +7,7 @@
 			
 			<!--  최신순, 공감순, 댓글순으로 리스트 목록 정렬하기 -->
 			<li class="nav-item ">
-			<c:if test="${sortId == 1 }">
+			<c:if test="${sortId == 1 || empty sortId}">
 				<a href="/post/list-view/1" class="nav-link nav-text fromLeft:after">커뮤니티</a>
 			</c:if>
 			<c:if test="${sortId == 2 }">

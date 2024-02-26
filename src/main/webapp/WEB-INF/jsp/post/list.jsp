@@ -14,7 +14,6 @@
 				</svg> 
 			</button>
 			<button type="button" class="btn-info post-list-btn" id= "commentBtn" data-sort-id="3">댓글순 <i class="bi bi-chat-dots"></i></button>
-		
 		</div>
 	<table class="table text-center">
  			<thead>

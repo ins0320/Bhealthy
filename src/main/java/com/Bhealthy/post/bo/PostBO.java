@@ -80,7 +80,9 @@ public class PostBO {
 		postRepository.delete(post);
 
 		// 이미지 있으면 삭제
-		fileManagerService.deleteFile(post.getImagePath());
+		if( post.getImagePath() != null) {
+			fileManagerService.deleteFile(post.getImagePath());
+		}
 	}
 	
 	// 글 가져오기
