@@ -14,9 +14,9 @@
 <%-- 내가 만든 스타일시트 --%>
 <link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-<!-- fullcalendar CDN --> 
- <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet' /> 
- <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script> 
+<%-- fullcalender CDN --%>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+ 
   <!-- fullcalendar 언어 CDN --> 
  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
 

@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BookingController {
 
-		@GetMapping("/booking/create-view")
+		@GetMapping("/admin/booking/create-view")
 		public String monthlyInput(Model model){		
 			model.addAttribute("viewName", "booking/create");
 			return "template/layout";
 		};
+		
+		
 }
