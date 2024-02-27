@@ -19,14 +19,17 @@
 				var calendar = new FullCalendar.Calendar(calendarEl, {     
 					height: '500px', // calendar 높이 설정    
 					expandRows: true, // 화면에 맞게 높이 재설정
+					slotMinTime: '09:00', // Day 캘린더에서 시작 시간        
+					slotMaxTime: '15:59', // Day 캘린더에서 종료 시간
 					selectable: true,
 					droppable: true,
-			
+					displayEventTime: true,
+					editable: true,
 					customButtons: {
 					    deleteButton: {
 					      text: '삭제하기',
 					      click: function(arg) {
-					        calendar.removeAllEvents();
+					        //calendar.removeAllEvents();
 					        alert("일정이 모두삭제되었습니다.");
 				            /* $.ajax({
 								 type:"post",
@@ -44,11 +47,9 @@
 	               	headerToolbar: {
 	                    left: 'prev,next today',
 	                    center: 'title',
-	                    right: 'deleteButton'
+	                    right: 'deleteButton, timeGridDay'
 	                },
-	                locale: 'ko',
-	                
-	          	
+	                locale: 'ko',      	
 	                select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.  
 	                	var title = prompt('Event Title:');    
 
@@ -61,10 +62,11 @@
 		                 	}  
 		                $.ajax({
 		                	 type:"post",
-		                	 url: "/post/monthly/create",
+		                	 url: "/admin/booking/create",
 		                	 data:{"title":title,"start":arg.start,"end":arg.end},
 		                	 success:function(data){
-		                		 if(data.result == "success"){		                			 
+		                		 if(data.result == "success"){		
+		                			 alert(start);
 		                			 location.reload();
 
 		                		 }else{
@@ -76,7 +78,7 @@
 		                	 }                	
 		                }); 
 	                	
-	                }
+	                } // ---- select
 	           		,events: function(arg, successCallback, failureCallback) {
 	           			/* $.ajax({
 	           				type: "get",
@@ -88,6 +90,7 @@
 		                		 alert("일정 로드 에러");
 		                	 }                		        				
 	        			}); */
+	        		
 	        		},
 	        		
 	            });
