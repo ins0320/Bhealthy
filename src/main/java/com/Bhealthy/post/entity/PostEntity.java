@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.Bhealthy.notice.entity.NoticeEntity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,13 +17,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
 @Getter
-@Builder
+@Builder(toBuilder = true)
 @Table(name = "post")
 @Entity
 public class PostEntity {
