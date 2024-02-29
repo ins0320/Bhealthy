@@ -1,4 +1,4 @@
-package com.Bhealthy.booking.entity;
+package com.Bhealthy.schedule.entity;
 
 
 import java.time.ZonedDateTime;
@@ -25,10 +25,10 @@ import lombok.ToString;
 @Setter
 @Getter
 @Builder
-@Table(name = "booking")
+@Table(name = "schedule")
 @Entity
 
-public class BookingEntity {
+public class ScheduleEntity {
 			@Id
 			@GeneratedValue(strategy = GenerationType.IDENTITY)
 			private int id;

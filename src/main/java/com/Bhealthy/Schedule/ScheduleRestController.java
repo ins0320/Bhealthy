@@ -1,31 +1,27 @@
-package com.Bhealthy.booking;
+package com.Bhealthy.schedule;
 
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Bhealthy.booking.bo.BookingBO;
+import com.Bhealthy.schedule.bo.ScheduleBO;
 
 import jakarta.servlet.http.HttpSession;
 
 @RestController
-public class BookingRestController {
+public class ScheduleRestController {
 
 	@Autowired
-	private BookingBO bookingBO;
+	private ScheduleBO scheduleBO;
 	
-	@PostMapping("/admin/booking/create")
+	@PostMapping("/admin/schedule/create")
 	public Map<String, Object> bookingCreate(
 			@RequestParam("title") String title,
 			@RequestParam("start") Date start,
@@ -36,7 +32,7 @@ public class BookingRestController {
 		int userId = (int)session.getAttribute("userId");
 		
 		if( userId == 6) {		
-			bookingBO.addBooking(title, start, end);
+			scheduleBO.addBooking(title, start, end);
 		}
 		
 		// 응답값
@@ -44,6 +40,7 @@ public class BookingRestController {
 		if( userId != 6) {
 			result.put("code",403);
 			result.put("result", "Forbidden");
+			return result;
 		} 
 		
 		result.put("code", 200);
@@ -52,8 +49,8 @@ public class BookingRestController {
 		return result;
 	}
 
-	@GetMapping("/booking/list")
+	@GetMapping("/schedule/list")
 	public List<Map<String,  Object>>  getBookingList(){		
-		return bookingBO.getBookingDetailList();
+		return scheduleBO.getBookingDetailList();
 	};
 }

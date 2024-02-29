@@ -1,4 +1,4 @@
-package com.Bhealthy.booking;
+package com.Bhealthy.schedule;
 
 import java.util.List;
 import java.util.Map;
@@ -9,19 +9,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.Bhealthy.booking.bo.BookingBO;
-import com.Bhealthy.booking.entity.BookingEntity;
+import com.Bhealthy.schedule.bo.ScheduleBO;
+import com.Bhealthy.schedule.entity.ScheduleEntity;
 
 @Controller
-public class BookingController {
+public class ScheduleController {
 
 	@Autowired
-	private BookingBO bookingBO;
+	private  ScheduleBO schedule;
 	
 	
-		@GetMapping("/booking/create-view")
+		@GetMapping("/schedule/check-view")
 		public String bookingCreate(Model model){		
-			model.addAttribute("viewName", "booking/create");
+			model.addAttribute("viewName", "schedule/create");
 			return "template/layout";
 		};	
 }

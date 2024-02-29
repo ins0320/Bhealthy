@@ -28,12 +28,6 @@ public class PermissionInterceptor implements HandlerInterceptor {
 			response.sendRedirect("/post/main-view");
 			return false; // 원래 요청된 컨트롤러 수행 X
 		}
-
-		/*
-		 * // admin아니면 캘린더 생성 페이지 접근 금지 if (userId != 6 && url ==
-		 * "/admin/booking/create") { response.sendRedirect("/post/main-view"); return
-		 * false; // 원래 요청된 컨트롤러 수행 X }
-		 */
 		return true; // 컨트롤러 수행
 	}
 

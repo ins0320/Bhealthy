@@ -1,7 +1,4 @@
-package com.Bhealthy.booking.bo;
-
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
+package com.Bhealthy.schedule.bo;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,19 +8,19 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Bhealthy.booking.entity.BookingEntity;
-import com.Bhealthy.booking.repository.BookingRepository;
+import com.Bhealthy.schedule.entity.ScheduleEntity;
+import com.Bhealthy.schedule.repository.ScheduleRepository;
 
 @Service
-public class BookingBO {
+public class ScheduleBO {
 	
 	@Autowired
-	private BookingRepository bookingRepository;
+	private ScheduleRepository scheduleRepository;
 	
 	// input: title, start, end   output: int(id)
 	public int addBooking(String title, Date start, Date end) {
-		BookingEntity bookingEntity = bookingRepository.save(
-					BookingEntity.builder()
+		ScheduleEntity bookingEntity = scheduleRepository.save(
+					ScheduleEntity.builder()
 					.title(title)
 					.start(start)
 					.end(end)
@@ -39,10 +36,10 @@ public class BookingBO {
 		List<Map<String,  Object>> bookingDetailList = new ArrayList<>();
 		
 		// 조회한 List
-		List<BookingEntity> bookingList = bookingRepository.findAll();
+		List<ScheduleEntity> bookingList = scheduleRepository.findAll();
 		
 		//조회한 bookingList를 하나씩 꺼내서 booking로 저장 ->  map 형태로 하나씩 저장
-		for(BookingEntity booking : bookingList) {
+		for(ScheduleEntity booking : bookingList) {
 			String title = booking.getTitle();
 			Date start = booking.getStart();
 			Date end = booking.getEnd();
