@@ -9,6 +9,8 @@ import com.Bhealthy.schedule.entity.ScheduleEntity;
 public interface ScheduleRepository extends JpaRepository<ScheduleEntity, Integer>{
 
 	public List<ScheduleEntity> findAllById(int id);
+
+	public void deleteAllByTitle(String title);
 	
  
 }

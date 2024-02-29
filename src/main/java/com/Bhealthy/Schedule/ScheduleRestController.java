@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,12 +33,13 @@ public class ScheduleRestController {
 		// 글쓴이 번호 - session에 저장 후 꺼내쓴다.
 		int userId = (int)session.getAttribute("userId");
 		
-		if( userId == 6) {		
-			scheduleBO.addBooking(title, start, end);
+		if( userId == 6 && title != "") {		
+			scheduleBO.addSchedule(title, start, end);
 		}
 		
 		// 응답값
 		Map<String, Object> result = new HashMap<>();
+		
 		if( userId != 6) {
 			result.put("code",403);
 			result.put("result", "Forbidden");
@@ -49,8 +52,57 @@ public class ScheduleRestController {
 		return result;
 	}
 
+	@DeleteMapping("/schedule/deleteAll")
+	public Map<String, Object> deleteAllSchedule( HttpSession session ) {
+		
+		// 글쓴이 번호 - session에 저장 후 꺼내쓴다.
+		int userId = (int)session.getAttribute("userId");
+		
+		if( userId == 6) {	
+			scheduleBO.deleteAllSchedule();	
+		}
+		Map<String, Object> result = new HashMap<>();
+		
+		if( userId != 6) {
+			result.put("code",403);
+			result.put("result", "Forbidden");
+			return result;
+		} 
+		
+		result.put("code",200);
+		result.put("result", "success");
+		
+		return result;
+		
+	}
+	
+	@Transactional
+	@DeleteMapping("/schedule/detele")
+	public Map<String, Object> deleteSchedule( HttpSession session, @RequestParam("title") String title) {
+		
+		// 글쓴이 번호 - session에 저장 후 꺼내쓴다.
+		int userId = (int)session.getAttribute("userId");
+		
+		if( userId == 6) {	
+			scheduleBO.deleteSchedule(title);
+		}
+		Map<String, Object> result = new HashMap<>();
+		
+		if( userId != 6) {
+			result.put("code",403);
+			result.put("result", "Forbidden");
+			return result;
+		} 
+		
+		result.put("code",200);
+		result.put("result", "success");
+		
+		return result;
+		
+	}
+	
 	@GetMapping("/schedule/list")
-	public List<Map<String,  Object>>  getBookingList(){		
-		return scheduleBO.getBookingDetailList();
+	public List<Map<String,  Object>>  getScheduleList(){		
+		return scheduleBO.getScheduleDetailList();
 	};
 }
