@@ -51,36 +51,7 @@
 
 	                },
 	                locale: 'ko',      	
-	                select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.  
-	                	var title = prompt('Event Title:');    
 
-		                if (title) {  
-		                		calendar.addEvent({    
-		                			title: title,     
-		                			start: arg.start,     
-		                			end: arg.end            
-		                		})         
-		                 	}  
-		                $.ajax({
-		                	 type:"post",
-		                	 url: "/admin/booking/create",
-		                	 data:{"title":title,"start":arg.start,"end":arg.end},
-		                	 success:function(data){
-		                		 if(data.code == 200){		
-		                			 alert("일정이 작성되었습니다.");
-		                			 location.reload();
-		                		 }else if (data.code == 403){
-		                			 alert("일정 작성 권한이 없습니다.");
-		                		 }  else{
-		                			 alert("일정 작성에 실패했습니다.");
-		                		 } 
-		                	 },
-		                	 error:function(){
-		                		 alert("일정 작성에 실패했습니다. 관리자에게 문의 바랍니다.");
-		                	 }                	
-		                }); 
-	                	
-	                }, // ---- select
 	                events: function(arg, successCallback, failureCallback) {
 	           			 $.ajax({
 	           				type: "get",

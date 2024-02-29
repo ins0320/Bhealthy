@@ -1,14 +1,11 @@
 package com.Bhealthy.booking.entity;
 
-import java.time.LocalDateTime;
+
 import java.time.ZonedDateTime;
 import java.util.Date;
 
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,11 +35,11 @@ public class BookingEntity {
 		
 			private String title;
 			
-			@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-			private LocalDateTime start;
+			@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+			private Date start;
 			
-			@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-			private LocalDateTime end;
+			@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")
+			private Date end;
 			
 			@UpdateTimestamp
 			@Column(name = "createdAt", updatable = false)

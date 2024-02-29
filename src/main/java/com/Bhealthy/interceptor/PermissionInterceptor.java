@@ -13,23 +13,28 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Component // spring bean으로 등록
-public class PermissionInterceptor implements HandlerInterceptor  {
+public class PermissionInterceptor implements HandlerInterceptor {
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException{
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws IOException {
 		// 요청 URL Path를 꺼낸다.
-		String uri = request.getRequestURI();
+		String url = request.getRequestURI();
 		// 로그인 여부
 		HttpSession session = request.getSession();
-		Integer userId = (Integer)session.getAttribute("userId");
-		
+		Integer userId = (Integer) session.getAttribute("userId");
+
 		// 비로그인 && /post 페이지 접근 금지
-		if (userId == null && uri.startsWith("/post")) {
+		if (userId == null && url.startsWith("/post")) {
 			response.sendRedirect("/post/main-view");
 			return false; // 원래 요청된 컨트롤러 수행 X
 		}
+
+		/*
+		 * // admin아니면 캘린더 생성 페이지 접근 금지 if (userId != 6 && url ==
+		 * "/admin/booking/create") { response.sendRedirect("/post/main-view"); return
+		 * false; // 원래 요청된 컨트롤러 수행 X }
+		 */
 		return true; // 컨트롤러 수행
 	}
-	
 
 }
-
