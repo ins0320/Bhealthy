@@ -18,6 +18,12 @@ public class NoticeRestController {
 	@Autowired
 	private NoticeBO noticeBO;
 	
+	/**
+	 * @API: 관리자 공지사항 작성하기
+	 * @param title
+	 * @param content
+	 * @return
+	 */
 	@PostMapping("/admin/notice/create")
 	public Map<String, Object> noticeCreate(@RequestParam("title") String title, @RequestParam("content") String content){
 		
@@ -32,6 +38,11 @@ public class NoticeRestController {
 		return result;
 	}
 	
+	/** 관리자 공지사항 삭제하기
+	 * @API: 
+	 * @param postId
+	 * @return
+	 */
 	@DeleteMapping("/admin/notice/delete")
 	public Map<String, Object> noticeDelete(@RequestParam("postId") int postId){
 		
@@ -46,6 +57,13 @@ public class NoticeRestController {
 		return result;
 	}
 	
+	/** 관리자 공지사항 수정하기
+	 * @API: 
+	 * @param postId
+	 * @param title
+	 * @param content
+	 * @return
+	 */
 	@PostMapping("/admin/notice/update")
 	public Map<String, Object> noticeUpdate(
 			@RequestParam("postId") int postId,
