@@ -8,6 +8,7 @@ header, footer {height:80px;}
 .notice-text{font-size: 25px;}
 .beige-color{ color: #BDC0C0;}
 .black-color{color: black;}
+.adminCreateNotice{text-align:right;}
 
 /*sign% */
 .sign-up-box{width:655px;  margin-top:20px; box-shadow:5px 5px 5px 5px #BDC0C0; border-radius: 10px;}

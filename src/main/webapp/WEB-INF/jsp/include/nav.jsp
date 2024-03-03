@@ -18,7 +18,7 @@
 			</c:if>
 			</li>
 
-			<li class="nav-item "><a href="/schedule/check-view" class="nav-link nav-text">예약하기</a></li>
+			<li class="nav-item "><a href="/schedule/check-view" class="nav-link nav-text">스케줄</a></li>
 			<li class="nav-item "><a href="/notice/list-view" class="nav-link nav-text">공지사항</a></li>
 		</ul>
 	</nav>

@@ -25,4 +25,7 @@
  			</c:forEach>	
  			</tbody>	
  	</table>
+ 	<div class="adminCreateNotice mr-5">
+ 		<a href="/admin/notice/create-view">작성하기</a>
+ 	</div>
 </div>	
