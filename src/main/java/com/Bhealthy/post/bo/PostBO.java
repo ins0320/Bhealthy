@@ -86,7 +86,7 @@ public class PostBO {
 	}
 	
 	// 글 가져오기
-	// input: userId, postId  output: List<PostEntity>
+	// input: sort  output: List<PostEntity>
 	public List<PostEntity> getPostListBySort(int sort) {
 		return postMapper.selectPostListBySort(sort);
 	}
