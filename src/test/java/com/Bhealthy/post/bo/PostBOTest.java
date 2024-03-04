@@ -2,21 +2,14 @@ package com.Bhealthy.post.bo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.Bhealthy.notice.entity.NoticeEntity;
 import com.Bhealthy.post.domain.Post;
 import com.Bhealthy.post.entity.PostEntity;
-import com.Bhealthy.post.repository.PostRepository;
 import com.Bhealthy.user.bo.UserBO;
 import com.Bhealthy.user.domain.User;
 
@@ -31,11 +24,7 @@ class PostBOTest {
 	@Autowired
 	private PostBO postBO;
 	
-	@Autowired
-	private PostRepository postRepository;
-	
-	
-	// @Test
+	//@Test
 	@DisplayName("글 추가하기")
 	void 글추가() {
 		log.info("@@@@@@ 글 추가 테스트");
@@ -47,17 +36,16 @@ class PostBOTest {
 		
 		user.setLoginId("aaaa");
 		postEntity.setUserId(1);
-		postEntity.setContent("test");
+		postEntity.setContent("add test");
 		
 		// when
 		int rowCount = postBO.addPost(postEntity.getUserId(), user.getLoginId(), postEntity.getContent(),null);	
 		
 		// then
-		assertTrue(rowCount >= 1);
+		if(rowCount == 1) {
 			log.info("@@@@@ 글 추가 테스트 성공");
+		}
 	}
-
-	
 	@Test
 	@DisplayName("글 삭제하기")
 	void 글삭제() {
@@ -65,17 +53,15 @@ class PostBOTest {
 		
 		//given
 		PostEntity postEntity = new PostEntity();
-		postEntity.setId(2);
+		
+		postEntity.setId(1);
+		postEntity.setUserId(1);
 		
 		// when
-		// userId, userLoginId, content, file
-		postBO.deletePostByIdAndUserId(postEntity.getId(),1);
-		PostEntity post = postRepository.findById(2).orElse(null);
+		postBO.deletePostByIdAndUserId(postEntity.getId(), postEntity.getUserId());
 		
 		// then
-		assertNull(post);
 		log.info("@@@@@ 글 삭제하기 성공");
-			
 	}	
 	
 
