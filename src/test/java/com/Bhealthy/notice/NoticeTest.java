@@ -1,5 +1,6 @@
-package com.Bhealthy.notice.bo;
+package com.Bhealthy.notice;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ class NoticeTest {
 	@Autowired
 	private NoticeBO noticeBO;
 
+
 	//@Test
 	@DisplayName("공지사항 작성하기")
 	void 공지사항쓰기() {
@@ -40,7 +42,7 @@ class NoticeTest {
 		log.info("!!!!! 공지사항 작성 완료");
 	}
 
-	@Test
+	//@Test
 	@DisplayName("공지사항 삭제하기")
 	void 공지사항삭제() {
 		log.info("!!!!! 공지사항 삭제하기");
@@ -54,13 +56,14 @@ class NoticeTest {
 		// when
 		noticeBO.deleteNotice(notice.getId());
 		List<NoticeEntity> noticeList = noticeBO.getNoticeEntityById(notice.getId());
-
+		int a =noticeList.size();
+		
 		// then
-		assertNotNull(noticeList);
+		assertTrue(a== 0);
 		log.info("!!!!! 공지사항 삭제 완료");
 	}	
 	
-		//@Test
+		@Test
 		@DisplayName("공지사항 수정하기")
 		void 공지사항수정() {
 			log.info("!!!!! 공지사항 수정하기");

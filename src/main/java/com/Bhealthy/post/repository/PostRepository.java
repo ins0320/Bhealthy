@@ -14,5 +14,6 @@ public interface PostRepository extends JpaRepository<PostEntity, Integer>  {
 	// id로 postEntity 조회하기
 	public List<PostEntity> findAllById(Integer id);
 
-	
+	// userId로 postEntity 조회하기
+	public int findAllByUserId(int userId);
 }
