@@ -1,0 +1,23 @@
+diff a/src/test/java/com/Bhealthy/post/bo/PostBOTest.java b/src/test/java/com/Bhealthy/post/bo/PostBOTest.java	(rejected hunks)
+@@ -65,15 +65,17 @@
+ 		
+ 		//given
+ 		PostEntity postEntity = new PostEntity();
+-		
+-		postEntity.setId(1);
+-		postEntity.setUserId(1);
++		postEntity.setId(2);
+ 		
+ 		// when
+-		postBO.deletePostByIdAndUserId(postEntity.getId(), postEntity.getUserId());
++		// userId, userLoginId, content, file
++		postBO.deletePostByIdAndUserId(postEntity.getId(),1);
++		PostEntity post = postRepository.findById(2).orElse(null);
+ 		
+ 		// then
++		assertNull(post);
+ 		log.info("@@@@@ 글 삭제하기 성공");
++			
+ 	}	
+ 	
+ 

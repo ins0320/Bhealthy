@@ -1,0 +1,26 @@
+diff a/src/test/java/com/Bhealthy/user/bo/UserBOTest.java b/src/test/java/com/Bhealthy/user/bo/UserBOTest.java	(rejected hunks)
+@@ -86,6 +86,24 @@
+ 	}
+ 	
+ 
++	//@Test
++	@DisplayName("아이디 중복확인 테스트")
++	void 아이디중복확인() {
++		log.info("$$$$$$ 아이디 중복확인 테스트");
++			
++		// given
++		User user = new User();
++		user.setLoginId("aaaa");
++		
++		// when
++		 User user1 = userBO.getUserByLonginId(user.getLoginId()); // 중복
++		 User user2 = userBO.getUserByLonginId("bbbb"); // 가입가능
++					
++		// then	
++		assertEquals(user.getLoginId(), user1.getLoginId()); //중복
++		assertNotEquals(user.getLoginId(), user2.getLoginId()); // 가입가능
++
++	}
+ 	
+ 
+ 
