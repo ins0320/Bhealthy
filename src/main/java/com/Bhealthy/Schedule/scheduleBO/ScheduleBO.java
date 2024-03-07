@@ -1,4 +1,4 @@
-package com.Bhealthy.schedule.bo;
+package com.Bhealthy.schedule.scheduleBO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
