@@ -20,7 +20,7 @@
  				<tr>
 		 			<th>No.</th>
 		 			<th>제목</th>
-		 			<th>아이디</th>
+		 			<th>작성자 번호</th>
 		 			<th>작성날짜</th>
  				</tr>
  			<tbody> 		
