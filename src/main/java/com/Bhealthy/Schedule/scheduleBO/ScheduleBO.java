@@ -1,4 +1,4 @@
-package com.Bhealthy.schedule.scheduleBO;
+package com.Bhealthy.Schedule.scheduleBO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -8,8 +8,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Bhealthy.schedule.entity.ScheduleEntity;
-import com.Bhealthy.schedule.repository.ScheduleRepository;
+import com.Bhealthy.Schedule.entity.ScheduleEntity;
+import com.Bhealthy.Schedule.repository.ScheduleRepository;
 
 @Service
 public class ScheduleBO {

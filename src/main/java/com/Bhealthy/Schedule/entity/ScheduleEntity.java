@@ -1,4 +1,4 @@
-package com.Bhealthy.schedule.entity;
+package com.Bhealthy.Schedule.entity;
 
 
 import java.time.ZonedDateTime;
