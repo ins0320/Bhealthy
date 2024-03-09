@@ -20,7 +20,7 @@
 			LEFT JOIN `sympathy` AS B
 			ON A.`id` = B.`postId`
 			GROUP BY
-					 a.id
+					 A.id
 			ORDER BY  
 					`count` desc
 			</when>
@@ -31,7 +31,7 @@
 			LEFT JOIN `comment` AS B
 			ON A.`id` = B.`postId`
 			GROUP BY 
-					a.id
+					A.id
 			ORDER BY 
 					count desc;	
 			</when>
