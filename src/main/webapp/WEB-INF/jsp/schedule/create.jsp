@@ -85,6 +85,7 @@
 		                			 location.reload();
 		                		 }else if (data.code == 403){
 		                			 alert("일정 작성 권한이 없습니다.");
+		                			 location.reload();
 		                		 }  else{
 		                			 alert("일정 작성에 실패했습니다.");
 		                		 } 
