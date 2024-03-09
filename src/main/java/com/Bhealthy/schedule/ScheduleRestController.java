@@ -25,14 +25,14 @@ public class ScheduleRestController {
 	private ScheduleBO scheduleBO;
 	
 	@PostMapping("/admin/schedule/create")
-	public Map<String, Object> bookingCreate(
+	public Map<String, Object> scheduleCreate(
 			@RequestParam("title") String title,
 			@RequestParam("start") Date start,
 			@RequestParam("end") Date end,
 			HttpSession session ){
 		
 		// 글쓴이 번호 - session에 저장 후 꺼내쓴다.
-		int userId = (int)session.getAttribute("userId");
+		Integer userId = (Integer)session.getAttribute("userId");
 		
 		if( userId == 6 && title != "") {		
 			scheduleBO.addSchedule(title, start, end);
