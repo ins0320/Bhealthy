@@ -32,6 +32,8 @@ public class ScheduleEntity {
 			@GeneratedValue(strategy = GenerationType.IDENTITY)
 			private int id;
 		
+			private int userId; 
+			
 			private String title;
 			
 			@DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss")

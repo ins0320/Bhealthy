@@ -35,7 +35,7 @@ public class ScheduleRestController {
 		Integer userId = (Integer)session.getAttribute("userId");
 		
 		if( userId == 6 && title != "") {		
-			scheduleBO.addSchedule(title, start, end);
+			scheduleBO.addSchedule(userId, title, start, end);
 		}
 		
 		// 응답값

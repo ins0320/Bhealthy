@@ -19,13 +19,16 @@
 				var calendar = new FullCalendar.Calendar(calendarEl, {     
 					height: '500px', // calendar 높이 설정    
 					expandRows: true, // 화면에 맞게 높이 재설정
-					slotMinTime: '09:00', // Day 캘린더에서 시작 시간        
-					slotMaxTime: '15:59', // Day 캘린더에서 종료 시간
+					slotMinTime: '09:00:00', // Day 캘린더에서 시작 시간        
+					slotMaxTime: '23:59:59', // Day 캘린더에서 종료 시간
 					selectable: true,
 					navLinks: true,
 					droppable: true,
 					displayEventTime: true,
 					editable: true,
+					allDayDefault: true,
+					allDay:false,
+					allDaySlot: false,
 					 customButtons: {
 						mainButton:{
 							text: '메인으로',
@@ -67,20 +70,21 @@
 	                },
 	                locale: 'ko',      	
 	                select: function(arg) { // 캘린더에서 드래그로 이벤트를 생성할 수 있다.  
+	                
 	                	var title = prompt('Event Title:');    
-
+						///var userId = $(this).data("user-id");
 		                if (title) {  
 		                		calendar.addEvent({    
 		                			title: title,     
 		                			start: arg.start,     
-		                			end: arg.end            
-		                		})         
+		                			end: arg.end
+		                		}) 
 		                $.ajax({
 		                	 type:"post",
 		                	 url: "/admin/schedule/create",
 		                	 data:{"title":title,"start":arg.start,"end":arg.end},
 		                	 success:function(data){
-		                		 if(data.code == 200 && title != ""){		
+		                		 if(data.code == 200 && title != ""){
 		                			 alert("일정이 작성되었습니다.");
 		                			 location.reload();
 		                		 }else if (data.code == 403){

@@ -19,9 +19,10 @@ public class ScheduleBO {
 	private ScheduleRepository scheduleRepository;
 	
 	// input: title, start, end   output: int(id)
-	public int addSchedule(String title, Date start, Date end) {
+	public int addSchedule(int userId, String title, Date start, Date end) {
 		ScheduleEntity scheduleEntity = scheduleRepository.save(
 					ScheduleEntity.builder()
+					.userId(userId)
 					.title(title)
 					.start(start)
 					.end(end)
