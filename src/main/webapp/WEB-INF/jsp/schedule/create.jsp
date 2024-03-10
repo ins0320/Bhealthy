@@ -84,8 +84,8 @@
 		                	 success:function(data){
 		                		 if(data.code == 200 && title != ""){
 		                			 alert("일정이 작성되었습니다.");
-		                			 alert(arg.start);
-		                			 alert(arg.end);
+		                			// alert(arg.start);
+		                			/// alert(arg.end);
 		                			 location.reload();
 		                		 }else if (data.code == 403){
 		                			 alert("일정 작성 권한이 없습니다.");
