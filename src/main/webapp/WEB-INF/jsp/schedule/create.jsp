@@ -20,15 +20,12 @@
 					height: '500px', // calendar 높이 설정    
 					expandRows: true, // 화면에 맞게 높이 재설정
 					slotMinTime: '09:00:00', // Day 캘린더에서 시작 시간        
-					slotMaxTime: '23:59:59', // Day 캘린더에서 종료 시간
+					slotMaxTime: '21:00:00', // Day 캘린더에서 종료 시간
 					selectable: true,
 					navLinks: true,
 					droppable: true,
 					displayEventTime: true,
 					editable: true,
-					allDayDefault: true,
-					allDay:false,
-					allDaySlot: false,
 					 customButtons: {
 						mainButton:{
 							text: '메인으로',
@@ -77,7 +74,8 @@
 		                		calendar.addEvent({    
 		                			title: title,     
 		                			start: arg.start,     
-		                			end: arg.end
+		                			end: arg.end,
+		                			allDay: arg.allDay
 		                		}) 
 		                $.ajax({
 		                	 type:"post",
@@ -86,6 +84,8 @@
 		                	 success:function(data){
 		                		 if(data.code == 200 && title != ""){
 		                			 alert("일정이 작성되었습니다.");
+		                			 alert(arg.start);
+		                			 alert(arg.end);
 		                			 location.reload();
 		                		 }else if (data.code == 403){
 		                			 alert("일정 작성 권한이 없습니다.");
