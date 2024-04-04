@@ -11,8 +11,7 @@
 		</div>
 		
 		<div class="d-flex justify-content-between">
-			<button type="button" id="postListBtn" class="btn btn-dark">목록</button>
-			
+			<a href="/notice/list-view" class="btn btn-dark">목록</a>
 			<div>
 				<button type="button" id="clearBtn" class="btn btn-secondary">모두 지우기</button>
 				<button type="button" id="saveBtn" class="btn btn-info">저장</button>
@@ -24,6 +23,12 @@
 	$(document).ready(function(){
 		// alert("게시글 작성");
 		
+		// 모두 지우기 버튼 클릭 
+		$("#clearBtn").on('click', function() {
+			//alert("모두 지우기");
+			$("#content").val("");
+			$("#file").val("");
+		});
 		
 		// 저장하기
 		$("#saveBtn").on('click', function(){			
@@ -70,7 +75,7 @@
 				//response
 				, success: function(data){
 					if (data.code == 200) {
-						alert("메모가 저장되었습니다.");
+						alert("글이 저장되었습니다.");
 						location.href ="/post/list-view/1";
 					} else {
 						alert(data.error_message);

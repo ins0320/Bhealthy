@@ -3,6 +3,7 @@ package com.Bhealthy.notice.bo;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.Bhealthy.notice.entity.NoticeEntity;
@@ -44,7 +45,7 @@ public class NoticeBO {
 	
 	// input: x output: List<NoticeEntity>
 	public List<NoticeEntity> getNoticeEntity(){
-		List<NoticeEntity> notice = noticeRepository.findAll();
+		List<NoticeEntity> notice = noticeRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
 		return notice;
 	}
 	

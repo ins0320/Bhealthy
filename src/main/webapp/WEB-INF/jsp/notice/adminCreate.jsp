@@ -8,11 +8,10 @@
 		<textarea id="content" class="form-control mt-3 content" placeholder="내용을 입력하세요" rows="10"></textarea>
 		
 		<div class="d-flex justify-content-between">
-			<a href="/admin/notice/list"class="btn btn-dark">목록</a>
+			<a href="/admin/notice/list-view"class="btn btn-dark">목록</a>
 			
 			<div>
-				<button type="button" id="updateBtn" class="btn btn-secondary">수정</button>
-				<button type="button" id="clearBtn" class="btn btn-danger">삭제</button>
+				<button type="button" id="clearBtn" class="btn btn-secondary">모두 지우기</button>
 				<button type="button" id="saveBtn" class="btn btn-info">저장</button>
 			</div>
 		</div>
@@ -20,6 +19,16 @@
 </div>
 <script>
 	$(document).ready(function(){
+		
+		// 모두 지우기 버튼 클릭 
+		$("#clearBtn").on('click', function() {
+			//alert("모두 지우기");
+			
+			$(".title").val("");
+			$("#content").val("");
+			
+		});
+		
 		$("#saveBtn").on('click', function(e){
 			e.preventDefault;
 			// alert("공지사항");

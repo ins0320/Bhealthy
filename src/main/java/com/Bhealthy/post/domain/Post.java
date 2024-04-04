@@ -24,7 +24,7 @@ public class Post {
 	// 공감 개수
 	private int sympathyCount;
 	
-	// 로그인 된 사람이 좋아요를 누른지 여부
+	// 로그인 된 사람이 공감하기를 눌렀는 지 여부
 	private boolean filledSympathy;
 	
 	// 댓글

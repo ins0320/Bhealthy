@@ -26,7 +26,7 @@ public class SympathyBO {
 		
 	}
 	
-	// 좋아요 총 개수
+	// 공감하기 총 개수
 	// input: postId  output: int
 	public int getSympathyByPostId(int postId) {
 		return sympathyMapper.selectSympathyCountByPostOrIdUserId(postId, null);

@@ -127,7 +127,7 @@ public class PostBO {
 			postView.setSympathyCount(sympathyCount);
 			
 			
-			// 로그인된 사람이 좋아요를 했는지 여부(비로그인 사용자 고려)
+			// 로그인된 사람이 공감하기를 눌렀는지 여부(비로그인 사용자 고려)
 			boolean filledLike = sympathyBO.getsympathyCountByPostId(post.getId(), userId);
 			postView.setFilledSympathy(filledLike);
 			
