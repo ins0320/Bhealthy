@@ -106,14 +106,16 @@
 	    				// 있는 일정 클릭시, 삭제하기 
 	    				// alert("삭제하기");
 	    				//alert(arg.event.title);
-	    				var title = arg.event.title;
+	    				//var title = arg.event.title;
 	    				// alert(title);
+	    				var id = arg.event.id;
+	    				//alert(id);
 	    				if (confirm('일정을 삭제하시겠습니까?')) 
 	    				{ 
 	    					  $.ajax({
 	    						  type: "DELETE",
 	    						  url: "/schedule/detele",
-	    						  data : {"title": title},
+	    						  data : {"id": id},
 	    						  success : function(data){
 	    							  if(data.code == 200){		
 	 		                			 alert("일정이 삭제 되었습니다.");

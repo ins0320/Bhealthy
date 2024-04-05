@@ -35,8 +35,8 @@ public class ScheduleBO {
 	public void deleteAllSchedule() {
 		scheduleRepository.deleteAll();
 	}
-	public void deleteSchedule(String title) {
-		scheduleRepository.deleteAllByTitle(title);
+	public void deleteSchedule(int id) {
+		scheduleRepository.deleteAllById(id);
 	}
 	
 	// input: x  output: List<BookingEntity>
@@ -50,11 +50,13 @@ public class ScheduleBO {
 		
 		//조회한 bookingList를 하나씩 꺼내서 booking로 저장 ->  map 형태로 하나씩 저장
 		for(ScheduleEntity schedule : scheduleList) {
+			int id = schedule.getId();
 			String title = schedule.getTitle();
 			Date start = schedule.getStart();
 			Date end = schedule.getEnd();
 			
 			Map<String, Object> map = new HashMap<>();
+			map.put("id", id);
 			map.put("title", title);
 			map.put("start", start);
 			map.put("end", end);

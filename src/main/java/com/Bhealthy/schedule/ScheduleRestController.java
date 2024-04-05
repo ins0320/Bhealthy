@@ -77,15 +77,16 @@ public class ScheduleRestController {
 		
 	}
 	
+	
 	@Transactional
 	@DeleteMapping("/schedule/detele")
-	public Map<String, Object> deleteSchedule( HttpSession session, @RequestParam("title") String title) {
+	public Map<String, Object> deleteSchedule( HttpSession session, @RequestParam("id") int id) {
 		
 		// 글쓴이 번호 - session에 저장 후 꺼내쓴다.
 		int userId = (int)session.getAttribute("userId");
 		
 		if( userId == 6) {	
-			scheduleBO.deleteSchedule(title);
+			scheduleBO.deleteSchedule(id);
 		}
 		Map<String, Object> result = new HashMap<>();
 		
@@ -106,4 +107,5 @@ public class ScheduleRestController {
 	public List<Map<String,  Object>>  getScheduleList(){		
 		return scheduleBO.getScheduleDetailList();
 	};
+
 }

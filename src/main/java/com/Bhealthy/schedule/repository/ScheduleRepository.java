@@ -10,7 +10,7 @@ public interface ScheduleRepository extends JpaRepository<ScheduleEntity, Intege
 
 	public List<ScheduleEntity> findAllById(int id);
 
-	public void deleteAllByTitle(String title);
+	public void deleteAllById(int id);
 	
  
 }
