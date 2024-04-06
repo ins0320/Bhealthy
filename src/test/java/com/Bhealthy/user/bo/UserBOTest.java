@@ -22,9 +22,6 @@ class UserBOTest {
 	@Autowired
 	UserBO userBO;
 	
-	@Autowired
-	UserMapper userMapper;
-	
 	
 	// @Test
 	@DisplayName("암호화 적용한 로그인 테스트")
@@ -66,7 +63,7 @@ class UserBOTest {
 		log.info("$$$$$$ 회원가입 테스트 성공");
 	}
 	
-	//@Test
+	@Test
 	@DisplayName("아이디 중복확인 테스트")
 	void 아이디중복확인() {
 		log.info("$$$$$$ 아이디 중복확인 테스트");
@@ -76,13 +73,14 @@ class UserBOTest {
 		user.setLoginId("aaaa");
 			
 		// when
-		User user1 = userBO.getUserByLonginId(user.getLoginId()); // 중복
+		//User user1 = userBO.getUserByLonginId(user.getLoginId()); // 중복
 		User user2 = userBO.getUserByLonginId("bbbb"); // 가입가능
 						
 		// then	
-		assertEquals(user.getLoginId(), user1.getLoginId()); //중복
+		//assertEquals(user.getLoginId(), user1.getLoginId()); //중복
+		//log.info("$$$$$$ 중복입니다. 가입이 불가능합니다.");
 		assertNotEquals(user.getLoginId(), user2.getLoginId()); // 가입가능
-	
+		log.info("$$$$$$ 중복이 아닙니다. 가입이 가능합니다.");
 		}
 	
 

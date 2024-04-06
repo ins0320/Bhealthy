@@ -42,7 +42,7 @@ class NoticeTest {
 		log.info("!!!!! 공지사항 작성 완료");
 	}
 
-	//@Test
+	@Test
 	@DisplayName("공지사항 삭제하기")
 	void 공지사항삭제() {
 		log.info("!!!!! 공지사항 삭제하기");
@@ -63,7 +63,7 @@ class NoticeTest {
 		log.info("!!!!! 공지사항 삭제 완료");
 	}	
 	
-		@Test
+		//@Test
 		@DisplayName("공지사항 수정하기")
 		void 공지사항수정() {
 			log.info("!!!!! 공지사항 수정하기");

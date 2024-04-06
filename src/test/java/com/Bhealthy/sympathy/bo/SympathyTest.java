@@ -25,10 +25,10 @@ class SympathyTest {
 	@Autowired
 	private SympathyMapper sympathyMapper;
 	
-	// @Test
-	@DisplayName("공감하기 추가/삭제 테스트")
+	//@Test
+	@DisplayName("공감하기 삭제 테스트")
 	void 공감하기() {
-		log.info("#####공감하기 추가/삭제 테스트");
+		log.info("#####공감하기 삭제 테스트");
 		//given
 		Sympathy sympathy = new Sympathy();
 		
@@ -42,13 +42,13 @@ class SympathyTest {
 		// 공감 존재 -> 삭제
 		assertTrue(sympathyCount > 0);
 		sympathyMapper.deleteSympathyByPostIdOrUserId(sympathy.getPostId(), sympathy.getUserId());
-		log.info("#####공감하기 삭제 완료" + sympathyCount);						
+		log.info("#####공감하기 삭제 완료:" + sympathyCount);						
 		}
 	
 	@Test
-	@DisplayName("공감하기 삭제 테스트")
+	@DisplayName("공감하기 추가 테스트")
 	void 공감하기삭제() {
-		log.info("#####공감하기 삭제 테스트");
+		log.info("#####공감하기 추가 테스트");
 		//given X
 		Sympathy sympathy = new Sympathy();
 				
@@ -63,7 +63,7 @@ class SympathyTest {
 		assertNotEquals(sympathyCount, 1);// 공감 없음 -> 추가
 		sympathyMapper.insertSympathy(sympathy.getPostId(), sympathy.getUserId());
 		sympathyCount = sympathyMapper.selectSympathyCountByPostOrIdUserId(sympathy.getPostId(), sympathy.getUserId());
-		log.info("#####공감하기 추가 완료" + sympathyCount);
+		log.info("#####공감하기 추가 완료:" + sympathyCount);
 		
 	}
 		 
