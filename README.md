@@ -11,7 +11,6 @@
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Sourcetree](https://img.shields.io/badge/sourcetree-0052CC.svg?style=for-the-badge&logo=java&logoColor=white)
 
-JPA 넣는게 맞는지?
 
 # 💪 Bhelahty 🏃
 
