@@ -69,7 +69,7 @@
 			$.get("/user/is-duplicated-id", {"loginId": loginId}) // request
 			.done(function(data){
 				if(data.code == 200){ // success
-					if(data.is_duplicate){ // 중복
+					if(data.is_duplicated_id){ // 중복
 						$("#idCheckDuplicated").removeClass("d-none");
 					} else { // 중복 아님 (사용가능)
 						$("#idCheckOk").removeClass("d-none");
