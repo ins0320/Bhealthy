@@ -29,7 +29,13 @@
  	</insert>
  	<select id="selectUserByLonginId" resultType="com.Bhealthy.user.domain.User">
  		SELECT 
- 				*
+ 				`id`
+				, `loginId`
+				, `password`
+				, `name`
+				, `email`
+				, `createdAt`
+				, `updatedAt`
 		FROM
 				`user`
 		WHERE
