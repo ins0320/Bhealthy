@@ -18,7 +18,7 @@
 * 필라테스 이용 고객을 대상으로 제공되는 서비스로, 월별 스케줄 공지, 커뮤니티, 공지사항 기능을 제공
 
 ### 👩‍🏫 포트폴리오
-[포트폴리오](https://www.miricanvas.com/v/133k19c)
+[포트폴리오](https://github.com/ins0320/Bhealthy/files/14977046/_._.pdf)
 
 ### 📐 설계
 * [UI 기획](https://ovenapp.io/view/MfKyy5CpYiT5dIcGG8Duvz2ssUE9UYMl/)
