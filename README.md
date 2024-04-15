@@ -1,4 +1,3 @@
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![Eclipse](https://img.shields.io/badge/Eclipse-FE7A16.svg?style=for-the-badge&logo=Eclipse&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 ![JPA](https://img.shields.io/badge/JPA-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
@@ -19,7 +18,7 @@
 * 필라테스 이용 고객을 대상으로 제공되는 서비스로, 월별 스케줄 공지, 커뮤니티, 공지사항 기능을 제공
 
 ### 👩‍🏫 포트폴리오
-[포트폴리오] 수정필요
+[포트폴리오](https://www.miricanvas.com/v/133k19c)
 
 ### 📐 설계
 * [UI 기획](https://ovenapp.io/view/MfKyy5CpYiT5dIcGG8Duvz2ssUE9UYMl/)
@@ -42,16 +41,30 @@
   * package: [com.Bhealthy.notice.*](https://github.com/ins0320/Bhealthy/tree/develop/src/main/java/com/Bhealthy/notice)
   * view: [/webapp/WEB-INF/jsp//notice/*](https://github.com/ins0320/Bhealthy/tree/develop/src/main/webapp/WEB-INF/jsp/notice)
 
-### 🎥 데모 전체 수정필요
-  📃  회원 가입 및 로그인: 
-  ![user](user.gif)
-  📃  커뮤니티:
-  ![today](today.gif)
-  📃  스케줄:
-  ![monthly](monthly.gif)
-  📃  공지사항:
-  ![notice](notice.gif)
+### 🎥 데모
+  📃  회원 가입 및 로그인 
+  ![signUp,signIn](https://github.com/ins0320/Bhealthy/assets/107856781/decdf597-1315-4311-af01-9b8858b166f3)
   
+  📃  커뮤니티 글 작성
+  ![community_write](https://github.com/ins0320/Bhealthy/assets/107856781/205cbb6c-1784-4a54-bf5a-98a6d5963d95)
+  
+  📃  커뮤니티 글 목록 나열, 댓글 및 공감 추가/삭제
+  ![community_list,comment,sympathy](https://github.com/ins0320/Bhealthy/assets/107856781/8341c005-addd-45c1-a032-c0b77a752934)
+  
+  📃  공지사항 관리자 글 작성(관리자만 접근 가능한 별도 url로 접근)
+  ![notice_write,update](https://github.com/ins0320/Bhealthy/assets/107856781/e2d6df7a-747a-430d-80cd-3a76f2243b8e)
+  
+  📃  공지사항 회원 글 상세 페이지
+  ![notice_read](https://github.com/ins0320/Bhealthy/assets/107856781/a23edbf5-6acd-4710-9e2a-8f9289bae534)
+  
+  📃  스케줄 관리자 일정 작성 및 삭제
+  ![schedule_admin](https://github.com/ins0320/Bhealthy/assets/107856781/258b3de9-9499-43f7-ac73-d83690fcb5d0)
+  
+   📃  스케줄 회원 페이지
+   ![schedule_member](https://github.com/ins0320/Bhealthy/assets/107856781/b646e6bc-5b11-43ab-9857-f791ee220f1c)
+
+
+
  
 ### 📌외부라이센스
 - Tomcat [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
