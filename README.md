@@ -22,7 +22,7 @@
 
 
 ### 📐 설계
-* [UI 기획](https://ovenapp.io/project/MfKyy5CpYiT5dIcGG8Duvz2ssUE9UYMl#5hMfF)
+* [UI 기획](https://ovenapp.io/view/MfKyy5CpYiT5dIcGG8Duvz2ssUE9UYMl/)
 * [데이터베이스, URL 설계](https://docs.google.com/spreadsheets/d/1HNUr1KfmyqhQGxD0medlo_HBQcz8ST7Uz9VAHcK74FA/edit#gid=0)
 
 ### 📋 주요기능
