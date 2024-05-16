@@ -20,8 +20,8 @@
 ### 👩‍🏫 포트폴리오
 [포트폴리오](https://github.com/ins0320/Bhealthy/files/15242882/kimyoojung_portfolio.pdf)
 
-
-
+### 👩‍💻 Bhealthy 이용방법 
+public url: http://54.180.159.95:8080/post/main-view
 
 
 ### 📐 설계
