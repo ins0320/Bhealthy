@@ -22,13 +22,13 @@ public class UserBO {
 	// 아이디 중복 확인
 	// input: loginId output: User
 	public User getUserByLonginId(String loginId) {
-		return userMapper.selectUserByLonginId(loginId);
+		return userMapper.selectUserByLoginIdOrPassword(loginId,null);
 	}
 		
 	// 로그인
 	// input: loginId, password   output: User
 	public User getUserByLoginIdAndPassword(String loginId, String password) {
-		return userMapper.selectUserByLoginIdAndPassword(loginId, password);
+		return userMapper.selectUserByLoginIdOrPassword(loginId, password);
 	}
 	
 	

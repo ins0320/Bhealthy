@@ -8,11 +8,15 @@ import com.Bhealthy.user.domain.User;
 @Mapper
 public interface UserMapper {
 
-	public User selectUserByLonginId(String loginId);
-	
-	public User selectUserByLoginIdAndPassword(
+	public User selectUserByLoginIdOrPassword(
 			@Param("loginId") String loginId,
 			@Param("password") String password);
+	
+//	public User selectUserByLonginId(String loginId);
+//	
+//	 public User selectUserByLoginIdAndPassword(
+//			@Param("loginId") String loginId,
+//			@Param("password") String password);
 	
 	public void insertUser(
 			@Param("loginId") String loginId,
