@@ -40,7 +40,7 @@
   * view: [/webapp/WEB-INF/jsp/schedule/*](https://github.com/ins0320/Bhealthy/tree/develop/src/main/webapp/WEB-INF/jsp/schedule)
 * 공지사항
   * package: [com.Bhealthy.notice.*](https://github.com/ins0320/Bhealthy/tree/develop/src/main/java/com/Bhealthy/notice)
-  * view: [/webapp/WEB-INF/jsp//notice/*](https://github.com/ins0320/Bhealthy/tree/develop/src/main/webapp/WEB-INF/jsp/notice)
+  * view: [/webapp/WEB-INF/jsp/notice/*](https://github.com/ins0320/Bhealthy/tree/develop/src/main/webapp/WEB-INF/jsp/notice)
 
 ### 🎥 데모
   📃  회원 가입 및 로그인 
