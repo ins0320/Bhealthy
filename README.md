@@ -18,12 +18,12 @@
 * 대면/비대면 운동의 장점을 모두 합친 서비스를 제공하고 싶어 진행했습니다.
 
 ### 👩‍🏫 포트폴리오
-[포트폴리오](https://github.com/user-attachments/files/16656232/kimyoojung_portfolio.pdf)
-
+[포트폴리오](https://github.com/user-attachments/files/16723905/_.pdf)
 
 ### 📐 설계
 * [UI 기획](https://ovenapp.io/view/MfKyy5CpYiT5dIcGG8Duvz2ssUE9UYMl/)
 * [데이터베이스, URL 설계](https://docs.google.com/spreadsheets/d/1HNUr1KfmyqhQGxD0medlo_HBQcz8ST7Uz9VAHcK74FA/edit#gid=0)
+* [WBS](https://docs.google.com/spreadsheets/d/1HNUr1KfmyqhQGxD0medlo_HBQcz8ST7Uz9VAHcK74FA/edit?gid=0#gid=0)
 
 ### 📋 주요기능
 * 회원가입
